@@ -1,0 +1,15 @@
+[
+    {
+        "question": "How do I reset my password?",
+        "answer": "You can reset your password by clicking on 'Forgot Password' on the login page and following the instructions sent to your email."
+    },
+    {
+        "question": "What are the delivery charges?",
+        "answer": "Delivery charges vary based on your location and the size of your order. Charges will be displayed at checkout."
+    },
+    {
+        "question": "How can I track my order?",
+        "answer": "Once your order is shipped, you will receive an email with a tracking number. You can use this number on our website to track your order's status."
+    }
+   
+]

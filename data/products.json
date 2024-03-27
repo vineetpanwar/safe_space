@@ -1,0 +1,24 @@
+[
+    {
+        "id": "001",
+        "name": "Wireless Mouse",
+        "category": "Electronics",
+        "price": 29.99,
+        "description": "A comfortable wireless mouse with high precision and long battery life."
+    },
+    {
+        "id": "002",
+        "name": "Bluetooth Headphones",
+        "category": "Electronics",
+        "price": 59.99,
+        "description": "High-quality Bluetooth headphones with noise cancellation and 12-hour battery life."
+    },
+    {
+        "id": "003",
+        "name": "Yoga Mat",
+        "category": "Sports",
+        "price": 19.99,
+        "description": "Eco-friendly yoga mat with excellent grip and cushioning."
+    }
+   
+]
