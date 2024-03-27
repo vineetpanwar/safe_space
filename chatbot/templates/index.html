@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        #chat { border: 1px solid #ccc; margin-top: 10px; padding: 10px; height: 300px; overflow-y: scroll; }
+        #userInput { width: 80%; padding: 10px; }
+        button { padding: 10px; }
+        .message { margin-bottom: 10px; }
+        .user { color: blue; }
+        .bot { color: green; }
+    </style>
+</head>
+<body>
+    <h1>Chat with our Bot</h1>
+    <input type="text" id="userInput" placeholder="Type a message...">
+    <button onclick="sendMessage()">Send</button>
+    <div id="chat"></div>
+
+    <script>
+        async function sendMessage() {
+            const inputField = document.getElementById('userInput');
+            const userText = inputField.value.trim();
+            if (!userText) return; // Prevent sending empty messages
+            inputField.value = '';
+            displayMessage(userText, 'user');
+
+            const response = await fetch('/chat', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({message: userText}),
+            }).then(response => response.json());
+
+            displayMessage(response.response, 'bot');
+            updateScroll(); 
+        }
+
+        function displayMessage(message, sender) {
+            const chatDiv = document.getElementById('chat');
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message', sender);
+            messageDiv.textContent = message;
+            chatDiv.appendChild(messageDiv);
+        }
+
+        function updateScroll(){
+            const chatDiv = document.getElementById('chat');
+            chatDiv.scrollTop = chatDiv.scrollHeight;
+        }
+    </script>
+</body>
+</html>
