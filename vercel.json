@@ -16,5 +16,5 @@
     "env": {
       "NEXT_PUBLIC_VERCEL_URL": "${VERCEL_URL}"
     },
-    "framework": "next"
+    "framework": "nextjs"
   }
