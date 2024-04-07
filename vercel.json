@@ -1,9 +1,15 @@
 {
-    "rewrites": [
-      {
-        "source": "/(.*)",
-        "destination": "/client/$1"
-      }
-    ]
+    "version": 2,
+    "builds": [
+      { "src": "client/package.json", "use": "@vercel/node" }
+    ],
+    "routes": [
+      { "src": "/(.*)", "dest": "client/$1" }
+    ],
+    "env": {
+      "NEXT_PUBLIC_VERCEL_URL": "${VERCEL_URL}"
+    },
+    "dev": { "command": "npm run dev --prefix client" },
+    "build": { "command": "npm run build --prefix client" },
+    "framework": "next"
   }
-  
