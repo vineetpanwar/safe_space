@@ -1,7 +1,14 @@
 {
     "version": 2,
     "builds": [
-      { "src": "client/package.json", "use": "@vercel/node" }
+      {
+        "src": "client/package.json",
+        "use": "@vercel/node",
+        "config": {
+          "devCommand": "npm run dev --prefix client",
+          "buildCommand": "npm run build --prefix client"
+        }
+      }
     ],
     "routes": [
       { "src": "/(.*)", "dest": "client/$1" }
@@ -9,7 +16,5 @@
     "env": {
       "NEXT_PUBLIC_VERCEL_URL": "${VERCEL_URL}"
     },
-    "dev": { "command": "npm run dev --prefix client" },
-    "build": { "command": "npm run build --prefix client" },
     "framework": "next"
   }
