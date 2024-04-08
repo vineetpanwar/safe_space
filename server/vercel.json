@@ -5,5 +5,13 @@
   ],
   "routes": [
     { "src": "/(.*)", "dest": "/api/index.py" }
-  ]
+  ],
+  "functions": {
+    "api/index.py": {
+      "runtime": "@vercel/python",
+      "memory": 1024,
+      "maxDuration": 30,
+      "includeFiles": ["api/index.py", "requirements.txt"]
+    }
+  }
 }
