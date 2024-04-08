@@ -9,7 +9,7 @@ def home():
     return "Flask Vercel Example - Hello World", 200
 
 @app.route("/foo")
-def home():
+def foo():
     return jsonify({ 'foo': 'bar'}), 200
 
 @app.errorhandler(404)
