@@ -11,7 +11,7 @@
       "runtime": "@vercel/python",
       "memory": 1024,
       "maxDuration": 30,
-      "includeFiles": "requirements.txt"
+      "includeFiles": "requirement.txt"
     }
   }
 }
