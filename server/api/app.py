@@ -30,6 +30,10 @@ def get_doctors_nearby_route():
 def foo():
     return jsonify({ 'foo': 'bar'}), 200
 
+@app.route("/doctors")
+def docs():
+    return jsonify({ 'doctors': 'hello'}), 200
+
 @app.route("/")
 def home():
     return "Flask Vercel Example - Hello World", 200

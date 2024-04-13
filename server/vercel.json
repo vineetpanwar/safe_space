@@ -1,9 +1,11 @@
 {
-  "version": 2,
+  "version": 3,
   "builds": [
     { "src": "/api/app.py", "use": "@vercel/python" }
   ],
   "routes": [
     { "src": "/(.*)", "dest": "/api/app.py" }
-  ]
+  ],"install": {
+    "include": ["requirements.txt"]
+  }
 }
