@@ -5,7 +5,5 @@
   ],
   "routes": [
     { "src": "/(.*)", "dest": "/api/app.py" }
-  ],"install": {
-    "include": ["requirements.txt"]
-  }
+  ]
 }
