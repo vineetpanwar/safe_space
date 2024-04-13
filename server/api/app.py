@@ -3,7 +3,6 @@ import sys
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from flask import Flask, jsonify, request
 from services.DoctorsService import fetch_doctors_based_on_location
-import logging
 
 app = Flask(__name__)
 
@@ -42,6 +41,3 @@ def home():
 @app.errorhandler(404)
 def page_not_found(e):
     return jsonify({"status": 404, "message": "Not Found"}), 404
-
-app.logger.setLevel(logging.INFO)
-app.run(debug=True)
