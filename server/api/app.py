@@ -1,7 +1,7 @@
 import os
 import sys
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, make_response
 from flask_cors import CORS
 
 from services.DoctorsService import fetch_doctors_based_on_location
@@ -9,10 +9,7 @@ from services.MentalHealthService import get_mental_health_response  # Import th
 
 
 app = Flask(__name__)
-CORS(app, resources={r"/chat": {"origins": "http://localhost:3000"}})
-CORS(app, resources={r"/*": {"origins": "*"}})
-CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
 @app.route("/getdoctorsnearby", methods=["POST"])
 def get_doctors_nearby_route():
 
@@ -33,33 +30,22 @@ def get_doctors_nearby_route():
         return jsonify({'error': 'Failed to fetch nearby doctors'}), 500
     
     
-@app.route("/chat", methods=["POST"])
+@app.route("/chat", methods=["POST", "OPTIONS"])
 def chat():
-    response = jsonify({"response": "Hello from Flask!"})
-    response.headers.add("Access-Control-Allow-Origin", "http://localhost:3000")
-    response.headers.add("Access-Control-Allow-Headers", "Content-Type,Authorization")
-    response.headers.add("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS")
-    return response
-    # return jsonify({"response": "Static test response"}), 200
-    # user_input = request.json.get('message')
-    # print("Received message:", user_input)  # Debug print
-    # if not user_input:
-    #     return jsonify({"error": "No message provided"}), 400
-
-    # response = get_mental_health_response(user_input)
-    # print("Sending response:", response)  # Debug print
-    # return jsonify({"response": response})
-
-# @app.route("/chat", methods=["OPTIONS"])
-# def chat_options():
-#     return _build_cors_preflight_response()
-
-# def _build_cors_preflight_response():
-#     response = make_response()
-#     response.headers.add("Access-Control-Allow-Origin", "http://localhost:3000")
-#     response.headers.add("Access-Control-Allow-Headers", "Content-Type,Authorization")
-#     response.headers.add("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS")
-#     return response
+    if request.method == "OPTIONS":
+        response = make_response()
+        response.headers.add("Access-Control-Allow-Origin", "http://localhost:3000")
+        response.headers.add("Access-Control-Allow-Methods", "POST, OPTIONS", "GET")
+        response.headers.add("Access-Control-Allow-Headers", "Content-Type,Authorization")
+        response.headers.add("Access-Control-Allow-Credentials", "true")
+        return response
+    elif request.method == "POST":
+        user_input = request.json.get('message', '')
+        response = get_mental_health_response(user_input)
+        response_data = jsonify({"response": response})
+        response_data.headers.add("Access-Control-Allow-Origin", "http://localhost:3000")
+        response_data.headers.add("Access-Control-Allow-Credentials", "true")
+        return response_data
 
 
 @app.route("/foo")
@@ -79,6 +65,12 @@ def home():
 def page_not_found(e):
     return jsonify({"status": 404, "message": "Not Found"}), 404
 
+def _build_cors_preflight_response():
+    response = jsonify({'status': 'ok'})  # You can send any response or even empty one.
+    response.headers.add("Access-Control-Allow-Origin", "http://localhost:3000")
+    response.headers.add("Access-Control-Allow-Headers", "Content-Type,Authorization")
+    response.headers.add("Access-Control-Allow-Methods", "POST, OPTIONS")
+    return response
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=5000)

@@ -3,28 +3,31 @@ import { motion } from 'framer-motion';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen w-full items-center justify-center bg-gradient-to-tr from-green-300 via-blue-500 to-purple-600 p-10">
+    <main className="flex min-h-screen w-full items-center justify-center bg-purple-950 p-10">
       <motion.div
         initial={{ y: 30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.7, delay: 0.1 }}
-        className="w-full max-w-4xl bg-white rounded-2xl shadow-2xl p-8 text-center"
+        className="w-full max-w-4xl bg-purple-500 rounded-2xl shadow-2xl p-8 text-center"
       >
-        <motion.h1
+        <motion.h6
           initial={{ scale: 0.9 }}
           animate={{ scale: 1 }}
           transition={{ duration: 0.7 }}
-          className="text-6xl font-bold text-gray-800"
+          className="text-6xl font-bold text-gray-100"
         >
-          Welcome to Safe Space Chatbot!
-        </motion.h1>
+          Welcome to Safe Space ChatBot
+        </motion.h6>
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
-          className="mt-4 text-lg text-gray-600"
+          transition={{ duration: 1, delay: 0.7 }}
+          className="mt-2 max-w-md mx-auto text-base text-gray-300 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl"
         >
-          Interact with our chatbot for mental health support and guidance.
+          At SafeSpace, we understand the importance of mental health, and we are here to offer you a
+          safe and welcoming environment to explore your well-being. Our chatbot is designed to
+          provide you with personalized mental health assessments and valuable resources, all from
+          the comfort of your own home.
         </motion.p>
         <div className="flex justify-center gap-4 mt-8">
           {["/chat", "/about", "/help"].map((path, index) => (

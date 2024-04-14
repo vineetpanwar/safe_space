@@ -21,6 +21,7 @@ export default function Chat() {
             headers: {
               'Content-Type': 'application/json',
             },
+            credentials: 'include',
             body: JSON.stringify({ message: messageToSend }),
           });
         if (!response.ok) {
@@ -40,8 +41,8 @@ export default function Chat() {
     }
   };
 
-  return (
-    <main className="flex min-h-screen w-full items-center justify-center p-10">
+   return (
+    <main className="flex min-h-screen w-full items-center justify-center bg-purple-950 p-10">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -50,23 +51,23 @@ export default function Chat() {
       >
         <div className="overflow-auto h-96 mb-4 p-4 bg-gray-50 rounded">
           {messages.map((message, index) => (
-            <div key={index} className={`p-2 my-2 rounded ${message.sender === 'user' ? 'bg-blue-100' : 'bg-green-100'}`}>
-              {message.text}
+            <div key={index} className={`p-3 my-2 max-w-xs mx-auto ${message.sender === 'user' ? 'bg-lightGreen rounded-br-none' : 'bg-purple rounded-bl-none'} float-${message.sender === 'user' ? 'right' : 'left'} clear-both`}>
+              <span className="text-white">{message.text}</span>
             </div>
           ))}
         </div>
-        <div className="flex">
+        <div className="flex mt-4 clear-both">
           <input
             type="text"
             value={newMessage}
             onChange={(e) => setNewMessage(e.target.value)}
             onKeyPress={handleKeyPress}
-            className="flex-1 p-2 border-2 border-gray-200 rounded"
+            className="flex-1 p-3 border-2 border-gray-200 rounded-l-lg"
             placeholder="Type your message here..."
           />
           <button
             onClick={handleSendMessage}
-            className="ml-2 px-6 py-2 bg-blue-500 text-white rounded shadow hover:bg-blue-600 focus:outline-none"
+            className="px-6 py-3 bg-blue-500 text-white rounded-r-lg shadow hover:bg-blue-600 focus:outline-none"
           >
             Send
           </button>
