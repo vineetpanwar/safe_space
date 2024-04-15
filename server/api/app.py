@@ -29,6 +29,10 @@ def get_doctors_nearby_route():
 def foo():
     return jsonify({ 'foo': 'bar'}), 200
 
+@app.route("/assessment")
+def assessment():
+    return jsonify({ 'abc': 'def'}), 200
+
 @app.route("/doctors")
 def docs():
     return jsonify({ 'doctors': 'hello'}), 200
