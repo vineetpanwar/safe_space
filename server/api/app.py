@@ -3,8 +3,21 @@ import sys
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from flask import Flask, jsonify, request
 from services.DoctorsService import fetch_doctors_based_on_location
+from services.AssessmentService import getAssessment
 
 app = Flask(__name__)
+data = {
+    "name": "John Doe",
+    "age": 30,
+    "city": "New York"
+}
+@app.route("/data")
+def data():
+    return jsonify({
+    "name": "John Doe",
+    "age": 30,
+    "city": "New York"
+}),200
 
 @app.route("/getdoctorsnearby", methods=["POST"])
 def get_doctors_nearby_route():
@@ -31,7 +44,8 @@ def foo():
 
 @app.route("/assessment")
 def assessment():
-    return jsonify({ 'abc': 'def'}), 200
+    getAssessment()
+    return jsonify({ 'abc': 'def1'}), 200
 
 @app.route("/doctors")
 def docs():
