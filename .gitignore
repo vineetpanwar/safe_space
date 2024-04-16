@@ -4,4 +4,4 @@
 /server/environment/*
 /server/api/__pycache__/*
 /server/services/__pycache__/*
-
+/.venv/*
