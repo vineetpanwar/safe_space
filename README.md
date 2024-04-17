@@ -1,5 +1,5 @@
 # SAFE Space - A Mental Health Wellness Chatbot
-### 0. SETUP AND RUN YOU REPO: 
+### 0. SETUP AND RUN YOUR REPO: 
 
 #### PREREQUISITES :
 Please make sure that you have ```>Node 20.x```  and ```python 3.11``` installed in your system.
