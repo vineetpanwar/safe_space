@@ -19,7 +19,14 @@
 body {
   color: #fff;
   background: #13072E !important;
+  background: linear-gradient(to right, #D6DBDC, #FFFFFF);
   height: 100vh;
+}
+
+html, body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 @layer utilities {
