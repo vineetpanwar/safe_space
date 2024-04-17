@@ -14,11 +14,22 @@ def getAssessment():
     try:
         assessmentDB = TinyDB('../db/assessment.json')
         # Print the depressionSet database and its contents
-        depression_set_table = assessmentDB.table('depressionSetA')
+        anxiety_set_table = assessmentDB.table('anxietySet')
         # depression_set_table.insert({'foo': 'bar'})
-        print("Database: depressionSet")
-        print(depression_set_table.all())
+        print("Database: anxietySet")
+        print(anxiety_set_table.all())
+
+        mooddisorder_set_table = assessmentDB.table('moodDisorderSet')
+        # depression_set_table.insert({'foo': 'bar'})
+        print("Database: moodDisorderSet")
+        print(mooddisorder_set_table.all())
+
+        psychoticDisorder_set_table = assessmentDB.table('psychoticDisorderSet')
+        # depression_set_table.insert({'foo': 'bar'})
+        print("Database: psychoticDisorderSet")
+        print(psychoticDisorder_set_table.all())
  
+
     except Exception as e:
         # Handling exceptions
         print(f"Error: {e}")
