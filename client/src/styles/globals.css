@@ -18,7 +18,8 @@
 
 body {
   color: #fff;
-  background: #13072E;
+  background: #13072E !important;
+  height: 100vh;
 }
 
 @layer utilities {
