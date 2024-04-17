@@ -5,3 +5,4 @@
 /server/api/__pycache__/*
 /server/services/__pycache__/*
 /.venv/*
+.DS_Store
