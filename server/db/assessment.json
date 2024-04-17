@@ -1,165 +1,1018 @@
 {
-    "depressionSet": {
-        "QuestionSet": {
-            "value": [
-                {
-                    "QID": "abc",
-                    "QuestionText": "what os the....",
-                    "Options": [
-                        {
-                            "optionId": "1",
-                            "optionText": "rarely"
-                        },
-                        {
-                            "optionId": "2",
-                            "optionText": "frequently"
-                        },
-                        {
-                            "optionId": "3",
-                            "optionText": "somethine1"
-                        },
-                        {
-                            "optionId": "4",
-                            "optionText": "intense"
-                        }
-                    ],
-                    "recordedOption": "4"
-                }
-            ]
-        }
-    },
-    "depressionSetA": {
+   "anxietySet": {
         "1":  {
-            "QID": "abc",
-            "QuestionText": "what os the....",
+            "QID": "1",
+            "QuestionText": "How often do you feel anxious?",
             "Options": [
                 {
                     "optionId": "1",
-                    "optionText": "rarely"
+                    "optionText": "Rarely"
                 },
                 {
                     "optionId": "2",
-                    "optionText": "frequently"
+                    "optionText": "Occasionally"
                 },
                 {
                     "optionId": "3",
-                    "optionText": "somethine1"
+                    "optionText": "Frequently"
                 },
                 {
                     "optionId": "4",
-                    "optionText": "intense"
+                    "optionText": "Almost constantly"
                 }
             ],
             "recordedOption": "4"
         },
+
         "2":  {
-            "QID": "abc",
-            "QuestionText": "what os the....",
+            "QID": "2",
+            "QuestionText": "When do you usually feel anxious?",
             "Options": [
                 {
                     "optionId": "1",
-                    "optionText": "rarely"
+                    "optionText": "In specific situations (e.g., social events, crowded places)"
                 },
                 {
                     "optionId": "2",
-                    "optionText": "frequently"
+                    "optionText": "Without any apparent trigger"
                 },
                 {
                     "optionId": "3",
-                    "optionText": "somethine1"
+                    "optionText": "Varies, can't predict"
                 },
                 {
                     "optionId": "4",
-                    "optionText": "intense"
+                    "optionText": "All the time, regardless of the situation"
+                }
+            ],
+            "recordedOption": "4"
+        },
+
+        "3":  {
+            "QID": "3",
+            "QuestionText": "How intense are your feelings of anxiety?",
+            "Options": [
+                {
+                    "optionId": "1",
+                    "optionText": "Mild (barely noticeable)"
+                },
+                {
+                    "optionId": "2",
+                    "optionText": "Moderate (manageable but bothersome)"
+                },
+                {
+                    "optionId": "3",
+                    "optionText": "Severe (difficult to cope with)"
+                },
+                {
+                    "optionId": "4",
+                    "optionText": "Extremely severe (overwhelming)"
+                }
+            ],
+            "recordedOption": "4"
+        },
+        
+        "4":  {
+            "QID": "4",
+            "QuestionText": "Do you experience physical symptoms along with anxiety?",
+            "Options": [
+                {
+                    "optionId": "1",
+                    "optionText": "No, no symptoms at all"
+                },
+                {
+                    "optionId": "2",
+                    "optionText": "No, only mental or emotional symptoms"
+                },
+                {
+                    "optionId": "3",
+                    "optionText": "Yes, physical symptoms but not severe"
+                },
+                {
+                    "optionId": "4",
+                    "optionText": "Yes, such as racing heartbeat, sweating, trembling"
+                    
+                }
+            ],
+            "recordedOption": "4"
+        },
+
+        "5":  {
+            "QID": "5",
+            "QuestionText": "Do you experience emotional symptoms along with anxiety?",
+            "Options": [
+                {
+                    "optionId": "1",
+                    "optionText": "No, no symptoms at all"
+                },
+                {
+                    "optionId": "2",
+                    "optionText": "No, only physical symptomYes, emotional symptoms but manageable"
+                },
+                {
+                    "optionId": "3",
+                    "optionText": "Yes, emotional symptoms but manageables"
+                },
+                {
+                    "optionId": "4",
+                    "optionText": "Yes, like difficulty focusing or relaxing"
+                    
+                }
+            ],
+            "recordedOption": "4"
+        },
+
+        "6":  {
+            "QID": "6",
+            "QuestionText": "Do you have any specific worries or fears that contribute to your anxiety?",
+            "Options": [
+                {
+                    "optionId": "1",
+                    "optionText": "Not sure"
+                },
+                {
+                    "optionId": "2",
+                    "optionText": "No, my anxiety seems to come out of nowhere"
+                },
+                {
+                    "optionId": "3",
+                    "optionText": "Yes, I have specific concerns (e.g., health, finances, relationship"
+                },
+                {
+                    "optionId": "4",
+                    "optionText": "Yes, multiple specific concerns"
+                    
+                }
+            ],
+            "recordedOption": "4"
+        },
+
+        "7":  {
+            "QID": "7",
+            "QuestionText": "How long have you been feeling this way?",
+            "Options": [
+                {
+                    "optionId": "1",
+                    "optionText": "Just recently"
+                },
+                {
+                    "optionId": "2",
+                    "optionText": "For several weeks or months"
+                },
+                {
+                    "optionId": "3",
+                    "optionText": "On and off for a long time"
+                },
+                {
+                    "optionId": "4",
+                    "optionText": "Can't remember"
+                    
+                }
+            ],
+            "recordedOption": "4"
+        },
+
+        "8":  {
+            "QID": "8",
+            "QuestionText": "Have you noticed any patterns or triggers for your anxiety?",
+            "Options": [
+                {
+                    "optionId": "1",
+                    "optionText": "Yes, certain situations or thoughts consistently trigger my anxiety"
+                },
+                {
+                    "optionId": "2",
+                    "optionText": "Yes, multiple triggers and patterns"
+                },
+                {
+                    "optionId": "3",
+                    "optionText": "No, it seems to come and go unpredictably"
+                },
+                {
+                    "optionId": "4",
+                    "optionText": "Not sure"
+                    
+                }
+            ],
+            "recordedOption": "4"
+        },
+
+        "9":  {
+            "QID": "9",
+            "QuestionText": "Do you find it difficult to control your anxious thoughts or feelings?",
+            "Options": [
+                {
+                    "optionId": "1",
+                    "optionText": "Yes, it's hard to stop worrying or calm down"
+                },
+                {
+                    "optionId": "2",
+                    "optionText": "Yes, very difficult to control"
+                },
+                {
+                    "optionId": "3",
+                    "optionText": "No, I can usually manage my anxiety when it arises"
+                },
+                {
+                    "optionId": "4",
+                    "optionText": "Not sure"
+                    
+                }
+            ],
+            "recordedOption": "4"
+        },
+
+        "10":  {
+            "QID": "10",
+            "QuestionText": "Have you experienced any panic attacks or sudden surges of intense anxiety?",
+            "Options": [
+                {
+                    "optionId": "1",
+                    "optionText": "No, never"
+                },
+                {
+                    "optionId": "2",
+                    "optionText": "Not sure"
+                },
+                {
+                    "optionId": "3",
+                    "optionText": "Yes, occasionally"
+                },
+                {
+                    "optionId": "4",
+                    "optionText": "Yes, frequently"
+                    
                 }
             ],
             "recordedOption": "4"
         }
+
+
+        
     },
-    "AnxietySet": {
-        "QuestionSet": [
-            {
-                "QID": "abc",
-                "QuestionText": "what os the....",
-                "Options": [
-                    {
-                        "optionId": "1",
-                        "optionText": "somethine1"
-                    },
-                    {
-                        "optionId": "2",
-                        "optionText": "somethine1"
-                    },
-                    {
-                        "optionId": "3",
-                        "optionText": "somethine1"
-                    },
-                    {
-                        "optionId": "4",
-                        "optionText": "somethine1"
-                    }
-                ],
-                "recordedOption": "4"
-            }
-        ]
-    },
-    "StressSet": {
-        "QuestionSet": [
-            {
-                "QID": "abc",
-                "QuestionText": "what os the....",
-                "Options": [
-                    {
-                        "optionId": "1",
-                        "optionText": "somethine1"
-                    },
-                    {
-                        "optionId": "2",
-                        "optionText": "somethine1"
-                    },
-                    {
-                        "optionId": "3",
-                        "optionText": "somethine1"
-                    },
-                    {
-                        "optionId": "4",
-                        "optionText": "somethine1"
-                    }
-                ],
-                "recordedOption": "4"
-            }
-        ]
-    },
-    "OtherSet": {
-        "QuestionSet": [
-            {
-                "QID": "abc",
-                "QuestionText": "what os the....",
-                "Options": [
-                    {
-                        "optionId": "1",
-                        "optionText": "somethine1"
-                    },
-                    {
-                        "optionId": "2",
-                        "optionText": "somethine1"
-                    },
-                    {
-                        "optionId": "3",
-                        "optionText": "somethine1"
-                    },
-                    {
-                        "optionId": "4",
-                        "optionText": "somethine1"
-                    }
-                ],
-                "recordedOption": "4"
-            }
-        ]
-    },
-    "DB": {
-        "1": {
-            "foo": "bar"
+    
+    
+
+
+   "moodDisorderSet": {
+        "1":  {
+            "QID": "1",
+            "QuestionText": "How often do you feel sad?",
+            "Options": [
+                {
+                    "optionId": "1",
+                    "optionText": "Rarely"
+                },
+                {
+                    "optionId": "2",
+                    "optionText": "Occasionally"
+                },
+                {
+                    "optionId": "3",
+                    "optionText": "Frequently"
+                },
+                {
+                    "optionId": "4",
+                    "optionText": "Almost constantly"
+                }
+            ],
+            "recordedOption": "4"
+        },
+
+        "2":  {
+            "QID": "2",
+            "QuestionText": "How long have you been feeling this way?",
+            "Options": [
+                {
+                    "optionId": "1",
+                    "optionText": "Just recently"
+                },
+                {
+                    "optionId": "2",
+                    "optionText": "For several weeks or months"
+                },
+                {
+                    "optionId": "3",
+                    "optionText": "On and off for a long time"
+                },
+                {
+                    "optionId": "4",
+                    "optionText": "Can't remember(extremely long time)"
+                }
+            ],
+            "recordedOption": "4"
+        },
+
+        "3":  {
+            "QID": "3",
+            "QuestionText": "Does anything specific trigger your feelings of sadness?",
+            "Options": [
+                {
+                    "optionId": "1",
+                    "optionText": "Not sure"
+                },
+                {
+                    "optionId": "2",
+                    "optionText": "Yes, specific events or situations trigger my sadness"
+                },
+                {
+                    "optionId": "3",
+                    "optionText": "No, my sadness seems to come and go unpredictably"
+                },
+                {
+                    "optionId": "4",
+                    "optionText": "Yes, multiple triggers"
+                }
+            ],
+            "recordedOption": "4"
+        },
+        
+        "4":  {
+            "QID": "4",
+            "QuestionText": "How intense are your feelings of sadness?",
+            "Options": [
+                {
+                    "optionId": "1",
+                    "optionText": "Mild (barely noticeable)"
+                },
+                {
+                    "optionId": "2",
+                    "optionText": "Moderate (manageable but bothersome)"
+                },
+                {
+                    "optionId": "3",
+                    "optionText": "Severe (difficult to cope with)"
+                },
+                {
+                    "optionId": "4",
+                    "optionText": "Extremely severe (overwhelming)"
+                    
+                }
+            ],
+            "recordedOption": "4"
+        },
+
+        "5":  {
+            "QID": "5",
+            "QuestionText": "Do you have any physical symptoms along with your sadness?",
+            "Options": [
+                {
+                    "optionId": "1",
+                    "optionText": "No, no symptoms at all"
+                },
+                {
+                    "optionId": "2",
+                    "optionText": "No, only emotional symptoms"
+                },
+                {
+                    "optionId": "3",
+                    "optionText": "Yes, physical symptoms but not severe"
+                },
+                {
+                    "optionId": "4",
+                    "optionText": "Yes, such as fatigue, changes in appetite, or sleep disturbances"
+                    
+                }
+            ],
+            "recordedOption": "4"
+        },
+
+        "6":  {
+            "QID": "6",
+            "QuestionText": "Have you lost interest in activities you once enjoyed?",
+            "Options": [
+                {
+                    "optionId": "1",
+                    "optionText": "Not sure"
+                },
+                {
+                    "optionId": "2",
+                    "optionText": "No, I still enjoy most of my usual activities"
+                },
+                {
+                    "optionId": "3",
+                    "optionText": "Yes, in some activities"
+                },
+                {
+                    "optionId": "4",
+                    "optionText": "Yes, I've lost interest in most activities"
+                    
+                }
+            ],
+            "recordedOption": "4"
+        },
+
+        "7":  {
+            "QID": "7",
+            "QuestionText": "Do you find it difficult to experience joy or pleasure?",
+            "Options": [
+                {
+                    "optionId": "1",
+                    "optionText": "Not sure"
+                },
+                {
+                    "optionId": "2",
+                    "optionText": "No, I still experience joy and pleasure regularly"
+                },
+                {
+                    "optionId": "3",
+                    "optionText": "Yes, I have difficulty experiencing joy sometimes"
+                },
+                {
+                    "optionId": "4",
+                    "optionText": "Yes, I rarely experience joy or pleasure"
+                    
+                }
+            ],
+            "recordedOption": "4"
+        },
+
+        "8":  {
+            "QID": "8",
+            "QuestionText": "Have you noticed changes in your appetite or weight due to feeling sad?",
+            "Options": [
+                {
+                    "optionId": "1",
+                    "optionText": "Not sure"
+                },
+                {
+                    "optionId": "2",
+                    "optionText": "No, my appetite and weight are normal"
+                },
+                {
+                    "optionId": "3",
+                    "optionText": "Yes, but only minor changes"
+                },
+                {
+                    "optionId": "4",
+                    "optionText": "Yes, my appetite and weight have changed significantly"
+                    
+                }
+            ],
+            "recordedOption": "4"
+        },
+
+        "9":  {
+            "QID": "9",
+            "QuestionText": "How does your sadness affect your daily life?",
+            "Options": [
+                {
+                    "optionId": "1",
+                    "optionText": "Not sure"
+                },
+                {
+                    "optionId": "2",
+                    "optionText": "It doesn't interfere much with my daily activitie"
+                },
+                {
+                    "optionId": "3",
+                    "optionText": "It sometimes makes it hard to concentrate or complete tasks"
+                },
+                {
+                    "optionId": "4",
+                    "optionText": "It significantly impacts my ability to function and complete tasks"
+                    
+                }
+            ],
+            "recordedOption": "4"
+        },
+
+        "10":  {
+            "QID": "10",
+            "QuestionText": "Have you had thoughts of harming yourself or suicidal thoughts?",
+            "Options": [
+                {
+                    "optionId": "1",
+                    "optionText": "No, never"
+                },
+                {
+                    "optionId": "2",
+                    "optionText": "Not sure"
+                },
+                {
+                    "optionId": "3",
+                    "optionText": "Yes, occasionally"
+                },
+                {
+                    "optionId": "4",
+                    "optionText": "Yes, frequently"
+                    
+                }
+            ],
+            "recordedOption": "4"
         }
+
+
+        
+    },
+
+
+
+
+    "psychoticDisorderSet": {
+        "1":  {
+            "QID": "1",
+            "QuestionText": "What kind of bad thoughts are you experiencing?",
+            "Options": [
+                {
+                    "optionId": "1",
+                    "optionText": "Thoughts that don't feel like my own"
+                },
+                {
+                    "optionId": "2",
+                    "optionText": "Disturbing or frightening thoughts that I can't control"
+                },
+                {
+                    "optionId": "3",
+                    "optionText": "Thoughts that others are out to harm me"
+                },
+                {
+                    "optionId": "4",
+                    "optionText": "Thoughts of hurting myself"
+                }
+            ],
+            "recordedOption": "4"
+        },
+
+        "2":  {
+            "QID": "2",
+            "QuestionText": "How often do you have these bad thoughts?",
+            "Options": [
+                {
+                    "optionId": "1",
+                    "optionText": "Rarely"
+                },
+                {
+                    "optionId": "2",
+                    "optionText": "Occasionally"
+                },
+                {
+                    "optionId": "3",
+                    "optionText": "Frequently"
+                },
+                {
+                    "optionId": "4",
+                    "optionText": "Almost constantly"
+                }
+            ],
+            "recordedOption": "4"
+        },
+
+        "3":  {
+            "QID": "3",
+            "QuestionText": "Do these bad thoughts affect your daily life or functioning?",
+            "Options": [
+                {
+                    "optionId": "1",
+                    "optionText": "Not sure"
+                },
+                {
+                    "optionId": "2",
+                    "optionText": "No, I'm able to manage them and continue with my daily activities"
+                },
+                {
+                    "optionId": "3",
+                    "optionText": "Yes, they sometimes make it hard to concentrate or complete tasks"
+                },
+                {
+                    "optionId": "4",
+                    "optionText": "Yes, they interfere significantly with my ability to function"
+                }
+            ],
+            "recordedOption": "4"
+        },
+        
+        "4":  {
+            "QID": "4",
+            "QuestionText": "Do you believe these bad thoughts to be true or based in reality?",
+            "Options": [
+                {
+                    "optionId": "1",
+                    "optionText": "Not sure"
+                },
+                {
+                    "optionId": "2",
+                    "optionText": "No, I know they're not true but they still bother me"
+                },
+                {
+                    "optionId": "3",
+                    "optionText": "Yes, but I question their validity at times"
+                },
+                {
+                    "optionId": "4",
+                    "optionText": "Yes, I believe them completely"
+                    
+                }
+            ],
+            "recordedOption": "4"
+        },
+
+        "5":  {
+            "QID": "5",
+            "QuestionText": "Have you experienced any hallucinations, such as hearing voices or seeing things that others don't?",
+            "Options": [
+                {
+                    "optionId": "1",
+                    "optionText": "No, never"
+                },
+                {
+                    "optionId": "2",
+                    "optionText": "Not sure"
+                },
+                {
+                    "optionId": "3",
+                    "optionText": "Yes, occasionally"
+                },
+                {
+                    "optionId": "4",
+                    "optionText": "Yes, frequently"
+                    
+                }
+            ],
+            "recordedOption": "4"
+        },
+
+        "6":  {
+            "QID": "6",
+            "QuestionText": "Are these bad thoughts accompanied by any physical sensations or experiences?",
+            "Options": [
+                {
+                    "optionId": "1",
+                    "optionText": "No, they're purely mental experiences"
+                },
+                {
+                    "optionId": "2",
+                    "optionText": "Not sure"
+                },
+                {
+                    "optionId": "3",
+                    "optionText": "Yes, I experience physical symptoms like sweating or trembling"
+                },
+                {
+                    "optionId": "4",
+                    "optionText": "Yes, I feel physically uncomfortable or distressed when I have these thoughts"
+                    
+                }
+            ],
+            "recordedOption": "4"
+        },
+
+        "7":  {
+            "QID": "7",
+            "QuestionText": "How long have you been experiencing these bad thoughts?",
+            "Options": [
+                {
+                    "optionId": "1",
+                    "optionText": "Just recently"
+                },
+                {
+                    "optionId": "2",
+                    "optionText": "For several weeks or months"
+                },
+                {
+                    "optionId": "3",
+                    "optionText": "On and off for a long time"
+                },
+                {
+                    "optionId": "4",
+                    "optionText": "Can't remember"
+                    
+                }
+            ],
+            "recordedOption": "4"
+        },
+
+        "8":  {
+            "QID": "8",
+            "QuestionText": "Do these bad thoughts feel intrusive or difficult to control?",
+            "Options": [
+                {
+                    "optionId": "1",
+                    "optionText": "No, I feel in control of my thoughts"
+                },
+                {
+                    "optionId": "2",
+                    "optionText": "Not sure"
+                },
+                {
+                    "optionId": "3",
+                    "optionText": "Yes, but I can sometimes control them with effort"
+                },
+                {
+                    "optionId": "4",
+                    "optionText": "Yes, they feel intrusive and overwhelming"
+                    
+                }
+            ],
+            "recordedOption": "4"
+        },
+
+        "9":  {
+            "QID": "9",
+            "QuestionText": "Have these bad thoughts caused you significant distress or discomfort?",
+            "Options": [
+                {
+                    "optionId": "1",
+                    "optionText": "No, I've learned to cope with them"
+                },
+                {
+                    "optionId": "2",
+                    "optionText": "Not sure"
+                },
+                {
+                    "optionId": "3",
+                    "optionText": "Yes, but I can usually manage them to some extent"
+                },
+                {
+                    "optionId": "4",
+                    "optionText": "Yes, they cause me a lot of distress and discomfort"
+                    
+                }
+            ],
+            "recordedOption": "4"
+        },
+
+        "10":  {
+            "QID": "10",
+            "QuestionText": "Have you noticed any patterns or triggers for these bad thoughts?",
+            "Options": [
+                {
+                    "optionId": "1",
+                    "optionText": "Not sure"
+                },
+                {
+                    "optionId": "2",
+                    "optionText": "No, they seem to come and go unpredictably"
+                },
+                {
+                    "optionId": "3",
+                    "optionText": "Yes, but the triggers seem random or unclear"
+                },
+                {
+                    "optionId": "4",
+                    "optionText": "Yes, certain situations or events trigger them consistently"
+                    
+                }
+            ],
+            "recordedOption": "4"
+        }
+
+
+        
+    },
+
+
+
+
+    "personalityDisorderSet": {
+        "1":  {
+            "QID": "1",
+            "QuestionText": "How often do you feel anxious?",
+            "Options": [
+                {
+                    "optionId": "1",
+                    "optionText": "Rarely"
+                },
+                {
+                    "optionId": "2",
+                    "optionText": "Occasionally"
+                },
+                {
+                    "optionId": "3",
+                    "optionText": "Frequently"
+                },
+                {
+                    "optionId": "4",
+                    "optionText": "Almost constantly"
+                }
+            ],
+            "recordedOption": "4"
+        },
+
+        "2":  {
+            "QID": "2",
+            "QuestionText": "When do you usually feel anxious?",
+            "Options": [
+                {
+                    "optionId": "1",
+                    "optionText": "In specific situations (e.g., social events, crowded places)"
+                },
+                {
+                    "optionId": "2",
+                    "optionText": "Without any apparent trigger"
+                },
+                {
+                    "optionId": "3",
+                    "optionText": "Varies, can't predict"
+                },
+                {
+                    "optionId": "4",
+                    "optionText": "All the time, regardless of the situation"
+                }
+            ],
+            "recordedOption": "4"
+        },
+
+        "3":  {
+            "QID": "3",
+            "QuestionText": "How intense are your feelings of anxiety?",
+            "Options": [
+                {
+                    "optionId": "1",
+                    "optionText": "Mild (barely noticeable)"
+                },
+                {
+                    "optionId": "2",
+                    "optionText": "Moderate (manageable but bothersome)"
+                },
+                {
+                    "optionId": "3",
+                    "optionText": "Severe (difficult to cope with"
+                },
+                {
+                    "optionId": "4",
+                    "optionText": "Extremely severe (overwhelming)"
+                }
+            ],
+            "recordedOption": "4"
+        },
+        
+        "4":  {
+            "QID": "4",
+            "QuestionText": "Do you experience physical symptoms along with anxiety?",
+            "Options": [
+                {
+                    "optionId": "1",
+                    "optionText": "No, no symptoms at all"
+                },
+                {
+                    "optionId": "2",
+                    "optionText": "No, only mental or emotional symptoms"
+                },
+                {
+                    "optionId": "3",
+                    "optionText": "Yes, physical symptoms but not severe"
+                },
+                {
+                    "optionId": "4",
+                    "optionText": "Yes, such as racing heartbeat, sweating, trembling"
+                    
+                }
+            ],
+            "recordedOption": "4"
+        },
+
+        "5":  {
+            "QID": "5",
+            "QuestionText": "Do you experience emotional symptoms along with anxiety?",
+            "Options": [
+                {
+                    "optionId": "1",
+                    "optionText": "No, no symptoms at all"
+                },
+                {
+                    "optionId": "2",
+                    "optionText": "No, only physical symptomYes, emotional symptoms but manageable"
+                },
+                {
+                    "optionId": "3",
+                    "optionText": "Yes, emotional symptoms but manageables"
+                },
+                {
+                    "optionId": "4",
+                    "optionText": "Yes, like difficulty focusing or relaxing"
+                    
+                }
+            ],
+            "recordedOption": "4"
+        },
+
+        "6":  {
+            "QID": "6",
+            "QuestionText": "Do you have any specific worries or fears that contribute to your anxiety?",
+            "Options": [
+                {
+                    "optionId": "1",
+                    "optionText": "Not sure"
+                },
+                {
+                    "optionId": "2",
+                    "optionText": "No, my anxiety seems to come out of nowhere"
+                },
+                {
+                    "optionId": "3",
+                    "optionText": "Yes, I have specific concerns (e.g., health, finances, relationship"
+                },
+                {
+                    "optionId": "4",
+                    "optionText": "Yes, multiple specific concerns"
+                    
+                }
+            ],
+            "recordedOption": "4"
+        },
+
+        "7":  {
+            "QID": "7",
+            "QuestionText": "How long have you been feeling this way?",
+            "Options": [
+                {
+                    "optionId": "1",
+                    "optionText": "Just recently"
+                },
+                {
+                    "optionId": "2",
+                    "optionText": "For several weeks or months"
+                },
+                {
+                    "optionId": "3",
+                    "optionText": "On and off for a long time"
+                },
+                {
+                    "optionId": "4",
+                    "optionText": "Can't remember"
+                    
+                }
+            ],
+            "recordedOption": "4"
+        },
+
+        "8":  {
+            "QID": "8",
+            "QuestionText": "Have you noticed any patterns or triggers for your anxiety?",
+            "Options": [
+                {
+                    "optionId": "1",
+                    "optionText": "Yes, certain situations or thoughts consistently trigger my anxiety"
+                },
+                {
+                    "optionId": "2",
+                    "optionText": "Yes, multiple triggers and patterns"
+                },
+                {
+                    "optionId": "3",
+                    "optionText": "No, it seems to come and go unpredictably"
+                },
+                {
+                    "optionId": "4",
+                    "optionText": "Not sure"
+                    
+                }
+            ],
+            "recordedOption": "4"
+        },
+
+        "9":  {
+            "QID": "9",
+            "QuestionText": "Do you find it difficult to control your anxious thoughts or feelings?",
+            "Options": [
+                {
+                    "optionId": "1",
+                    "optionText": "Yes, it's hard to stop worrying or calm down"
+                },
+                {
+                    "optionId": "2",
+                    "optionText": "Yes, very difficult to control"
+                },
+                {
+                    "optionId": "3",
+                    "optionText": "No, I can usually manage my anxiety when it arises"
+                },
+                {
+                    "optionId": "4",
+                    "optionText": "Not sure"
+                    
+                }
+            ],
+            "recordedOption": "4"
+        },
+
+        "10":  {
+            "QID": "10",
+            "QuestionText": "Have you experienced any panic attacks or sudden surges of intense anxiety?",
+            "Options": [
+                {
+                    "optionId": "1",
+                    "optionText": "No, never"
+                },
+                {
+                    "optionId": "2",
+                    "optionText": "Not sure"
+                },
+                {
+                    "optionId": "3",
+                    "optionText": "Yes, occasionally"
+                },
+                {
+                    "optionId": "4",
+                    "optionText": "Yes, frequently"
+                    
+                }
+            ],
+            "recordedOption": "4"
+        }
+
+
+        
     }
 }
