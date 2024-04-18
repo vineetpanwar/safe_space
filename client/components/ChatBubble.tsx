@@ -14,9 +14,20 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({ text, isUser }) => {
   const bubbleClasses = `${baseClasses} ${isUser ? userClasses + ' ml-auto' : systemClasses + ' mr-auto'}`;
 
   return (
-    <div className={bubbleClasses}>
-      <p>{text}</p>
-    </div>
+    <>
+      { !isUser ? (
+        <div className="chat chat-start">
+          <div className="chat-bubble bg-purple-500 text-white">{text}</div>
+        </div>
+      )
+    :
+      (
+        <div className="chat chat-end">
+          <div className="chat-bubble bg-green-500 text-white">{text}</div>
+        </div>
+      )
+  }
+    </>
   );
 };
 

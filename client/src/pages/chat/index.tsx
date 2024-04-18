@@ -17,6 +17,7 @@ const Chat = () => {
       ]);  const [userInput, setUserInput] = useState('');
   const [currentQuestion, setCurrentQuestion] = useState<number | null>(1);
   const [showOptions, setShowOptions] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -43,11 +44,20 @@ const Chat = () => {
     setUserInput(''); // Clear input after sending
   };
 
+  const setQuestionWithDelay = (cb: any, time: number) => {
+    setLoading(true);
+    setTimeout(() => {
+      setMessages((msgs) => cb(msgs));
+      setLoading(false);
+    }, time);
+  }
+
   const handleMessageClick = (message: string) => {
     const newUserMessage: Message = { text: message, sender: "user" };
-    
     if (currentQuestion === 1) {
-      setMessages((msgs) => [
+      setLoading(true);
+      setTimeout(() => {
+        setMessages((msgs) => [
         ...msgs,
         newUserMessage,
         {
@@ -55,13 +65,15 @@ const Chat = () => {
           sender: "system"
         }
       ]);
+      setLoading(false);
       setCurrentQuestion(2);
+    }, 1500);
     } else if (currentQuestion === 2) {
-      setMessages((msgs) => [
+      setQuestionWithDelay((msgs: any) => [
         ...msgs,
         newUserMessage,
         { text: "How would you rate your level of stress?", sender: "system" }
-      ]);
+      ],1500);
       setCurrentQuestion(3);
     } else if (currentQuestion === 3) {
       setMessages((msgs) => [
@@ -86,7 +98,6 @@ const Chat = () => {
       setCurrentQuestion(null);
     }
   };
-  
 
   const optionButtons = showOptions ? (
     <div className="flex flex-wrap justify-center gap-2 p-4">
@@ -100,27 +111,16 @@ const Chat = () => {
     </div>
   ) : null;
 
-
   return (
-    <div className="flex flex-col items-center justify-center w-full bg-gradient-to-r from-background-start-rgb to-background-end-rgb">
+    <div className="flex flex-col pt-20 items-center justify-center w-full bg-gradient-to-r from-background-start-rgb to-background-end-rgb">
       <SafeSpaceLogoBanner />
-      <div className="w-full max-w-md max-h-[75vh] space-y-2 p-4 bg-white shadow-md rounded-lg overflow-y-auto">
+      <div className="w-full mt-[5rem] max-h-[75vh] space-y-2 px-[20%] shadow-md rounded-lg overflow-y-auto">
         {messages.map((message, index) => {
-          if (message.sender === 'resource' && message.link) {
-            return (
-              <div key={index} className="text-center py-2">
-                <Link href={message.link as "/articles/mental-health" | "/videos"}>
-                  <a className="inline-block bg-purple-200 hover:bg-purple-300 text-black font-bold py-2 px-4 rounded">
-                    {message.text}
-                  </a>
-                </Link>
-              </div>
-            );
-          }
           return <ChatBubble key={index} text={message.text} isUser={message.sender === "user"} />;
         })}
         <div ref={messagesEndRef} />
       </div>
+      {loading && <span className="loading loading-dots loading-lg"></span>}
       {optionButtons}
       {currentQuestion && !showOptions && (
         <div className="flex items-center w-full max-w-md mt-4">
