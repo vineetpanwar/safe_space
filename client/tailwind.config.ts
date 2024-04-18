@@ -10,6 +10,12 @@ const config: Config = {
     extend: {
     },
   },
+  variants: {
+    extend: {
+      backgroundColor: ['hover'], // Enable hover variant for background-color
+      textColor: ['hover'], // Enable hover variant for text-color
+    },
+  },
   plugins: [require("daisyui")],
 };
 export default config;

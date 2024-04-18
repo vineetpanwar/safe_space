@@ -17,6 +17,7 @@ declare module "nextjs-routes" {
     | StaticRoute<"/help/doctorsNearby">
     | StaticRoute<"/help/resources">
     | StaticRoute<"/">
+    | StaticRoute<"/userDetails">
     | StaticRoute<"/videos">;
 
   interface StaticRoute<Pathname> {
