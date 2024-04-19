@@ -54,7 +54,6 @@ const Assessment = () => {
     setMessageQue(newMessageQue);
     setShowOptions(false);
     setLoading(true);
-    console.log("vinee .........", currentQuestion,messageQue.length);
     if(currentQuestion !=0 && currentQuestion>=messageQue.length - 1) {
       // Make a api call to check the score
       const score = 'bad';
@@ -83,10 +82,12 @@ const Assessment = () => {
       },1500);
     }
     setTimeout(() => {
-      setShowOptions(true);
       setLoading(false);
+      setCurrentQuestion(currentQuestion+1)
     },1500);
-    setCurrentQuestion(currentQuestion+1)
+    setTimeout(() => {
+      setShowOptions(true);
+    }, 2000)
   }
 
   // Scroll to the bottom of the chat to the latest message
@@ -112,14 +113,11 @@ const Assessment = () => {
       </div>
   ) : null;
 
-  console.log(optionButtons);
-
   return (
     <div className="flex flex-col pt-10 items-center justify-center w-full bg-gradient-to-r from-background-start-rgb to-background-end-rgb">
       <SafeSpaceLogoBanner />
       <div className="w-full mt-[5rem] max-h-[60vh] space-y-2 px-[20%] shadow-md rounded-lg overflow-y-auto">
         {messageQue.map((message, index) => {
-          console.log('vineet here ', currentQuestion, index);
           return ((index <= currentQuestion) ? (<ChatBubble key={index} QuestionText={message.QuestionText} AnswerText={message.recordedOption ? message.Options.filter(curr => curr.optionId === message.recordedOption)[0].optionText : ''}/>) : null);
         })}
         {loading && <span className="loading loading-dots loading-lg"></span>}
