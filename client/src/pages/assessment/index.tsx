@@ -59,10 +59,10 @@ const Assessment = () => {
       const score = 'bad';
       if(score === 'bad') {
         // @ts-ignore
-        router.push('/help/doctorsnearby?find=therapists')
+        router.push('/help/doctorsNearby?find=therapists')
       } else if(score === 'worse') {
         // @ts-ignore
-        router.push('/help/doctorsnearby?find=psycologists')
+        router.push('/help/doctorsNearby?find=psycologists')
       } else {
         router.push('/help/resources')
       }
