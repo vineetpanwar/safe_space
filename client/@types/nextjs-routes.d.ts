@@ -14,7 +14,7 @@ declare module "nextjs-routes" {
     | StaticRoute<"/articles/mental-health">
     | StaticRoute<"/chat">
     | StaticRoute<"/foo">
-    | StaticRoute<"/help/doctorsNearby">
+    | StaticRoute<"/help/doctorsnearby">
     | StaticRoute<"/help/resources">
     | StaticRoute<"/">
     | StaticRoute<"/userDetails">
