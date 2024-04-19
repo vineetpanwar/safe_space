@@ -8,7 +8,7 @@ export default function Resources() {
       <SafeSpaceLogoBanner />
       <h2 className="text-3xl text-foreground-rgb my-6">Mental Health Resources</h2>
       <p className="text-foreground-rgb text-center mb-6">Explore resources or chat with us for support.</p>
-      <div className="space-y-4">
+      {/* <div className="space-y-4">
         <Link href="/chat">
           <a className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
             Chat with Us
@@ -24,7 +24,7 @@ export default function Resources() {
             Watch Videos
           </a>
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 }
