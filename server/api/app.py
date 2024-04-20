@@ -3,7 +3,8 @@ import sys
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from flask import Flask, jsonify, request
 from services.DoctorsService import fetch_doctors_based_on_location
-from services.AssessmentService import getAssessment
+
+from services.AssessmentService import getAssessment, createAssessment
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -14,6 +15,8 @@ data = {
     "age": 30,
     "city": "New York"
 }
+
+
 @app.route("/data")
 def data():
     return jsonify({
@@ -45,10 +48,32 @@ def get_doctors_nearby_route():
 def foo():
     return jsonify({ 'foo': 'bar'}), 200
 
-@app.route("/assessment")
+@app.route("/get_assessment")
 def assessment():
     getAssessment()
     return jsonify({ 'abc': 'def1'}), 200
+
+@app.route("/create_assessment", methods=["POST"])
+def create_assessment_route():
+    try:
+        # Extract parameters from the request data
+        data = request.json
+        database_name = data.get('database_name')
+        set_name = data.get('set_name')
+        question_text = data.get('question_text')
+        options = data.get('options')
+
+        # Call the createAssessment function
+        result = createAssessment(database_name, set_name, question_text, options)
+
+        # Return the result as JSON response
+        return jsonify(result)
+
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)}), 500
+    
+
+
 
 @app.route("/doctors")
 def docs():

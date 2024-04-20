@@ -767,7 +767,7 @@
     "personalityDisorderSet": {
         "1":  {
             "QID": "1",
-            "QuestionText": "How often do you feel anxious?",
+            "QuestionText": "Do you often feel overwhelmed by your emotions?",
             "Options": [
                 {
                     "optionId": "1",
@@ -775,7 +775,7 @@
                 },
                 {
                     "optionId": "2",
-                    "optionText": "Occasionally"
+                    "optionText": "Sometimes"
                 },
                 {
                     "optionId": "3",
@@ -791,23 +791,23 @@
 
         "2":  {
             "QID": "2",
-            "QuestionText": "When do you usually feel anxious?",
+            "QuestionText": "How would you describe your emotional responses to situations?",
             "Options": [
                 {
                     "optionId": "1",
-                    "optionText": "In specific situations (e.g., social events, crowded places)"
+                    "optionText": "My emotional responses are generally appropriate and balanced"
                 },
                 {
                     "optionId": "2",
-                    "optionText": "Without any apparent trigger"
+                    "optionText": "Not sure"
                 },
                 {
                     "optionId": "3",
-                    "optionText": "Varies, can't predict"
+                    "optionText": "I struggle to express my emotions or feel numb"
                 },
                 {
                     "optionId": "4",
-                    "optionText": "All the time, regardless of the situation"
+                    "optionText": "I tend to overreact or have very intense emotional responses"
                 }
             ],
             "recordedOption": "4"
@@ -815,23 +815,23 @@
 
         "3":  {
             "QID": "3",
-            "QuestionText": "How intense are your feelings of anxiety?",
+            "QuestionText": "How do you typically cope with strong emotions?",
             "Options": [
                 {
                     "optionId": "1",
-                    "optionText": "Mild (barely noticeable)"
+                    "optionText": "I use healthy coping mechanisms to manage my emotions"
                 },
                 {
                     "optionId": "2",
-                    "optionText": "Moderate (manageable but bothersome)"
+                    "optionText": "Not sure"
                 },
                 {
                     "optionId": "3",
-                    "optionText": "Severe (difficult to cope with"
+                    "optionText": "I try to avoid or suppress my emotions"
                 },
                 {
                     "optionId": "4",
-                    "optionText": "Extremely severe (overwhelming)"
+                    "optionText": "I find it difficult to cope and may engage in impulsive behaviors"
                 }
             ],
             "recordedOption": "4"
@@ -839,23 +839,23 @@
         
         "4":  {
             "QID": "4",
-            "QuestionText": "Do you experience physical symptoms along with anxiety?",
+            "QuestionText": "Do you have difficulty identifying or understanding your own emotions?",
             "Options": [
                 {
                     "optionId": "1",
-                    "optionText": "No, no symptoms at all"
+                    "optionText": "No, I generally understand my emotions well"
                 },
                 {
                     "optionId": "2",
-                    "optionText": "No, only mental or emotional symptoms"
+                    "optionText": "Not sure"
                 },
                 {
                     "optionId": "3",
-                    "optionText": "Yes, physical symptoms but not severe"
+                    "optionText": "Sometimes, especially in certain situations"
                 },
                 {
                     "optionId": "4",
-                    "optionText": "Yes, such as racing heartbeat, sweating, trembling"
+                    "optionText": "Yes, I often feel confused about what I'm feeling"
                     
                 }
             ],
@@ -864,23 +864,23 @@
 
         "5":  {
             "QID": "5",
-            "QuestionText": "Do you experience emotional symptoms along with anxiety?",
+            "QuestionText": "Do others often comment on your emotional responses or behaviors?",
             "Options": [
                 {
                     "optionId": "1",
-                    "optionText": "No, no symptoms at all"
+                    "optionText": "No, not usually"
                 },
                 {
                     "optionId": "2",
-                    "optionText": "No, only physical symptomYes, emotional symptoms but manageable"
+                    "optionText": "Not sure"
                 },
                 {
                     "optionId": "3",
-                    "optionText": "Yes, emotional symptoms but manageables"
+                    "optionText": "Sometimes, but not frequently"
                 },
                 {
                     "optionId": "4",
-                    "optionText": "Yes, like difficulty focusing or relaxing"
+                    "optionText": "Yes, I've been told I'm overly emotional or unpredictable"
                     
                 }
             ],
@@ -889,23 +889,23 @@
 
         "6":  {
             "QID": "6",
-            "QuestionText": "Do you have any specific worries or fears that contribute to your anxiety?",
+            "QuestionText": "Do you find it challenging to control your emotional reactions?",
             "Options": [
                 {
                     "optionId": "1",
-                    "optionText": "Not sure"
+                    "optionText": "No, I can usually manage my emotions effectively"
                 },
                 {
                     "optionId": "2",
-                    "optionText": "No, my anxiety seems to come out of nowhere"
+                    "optionText": "Not sure"
                 },
                 {
                     "optionId": "3",
-                    "optionText": "Yes, I have specific concerns (e.g., health, finances, relationship"
+                    "optionText": "Sometimes, depending on the situation"
                 },
                 {
                     "optionId": "4",
-                    "optionText": "Yes, multiple specific concerns"
+                    "optionText": "Yes, I struggle to control my emotions once they arise"
                     
                 }
             ],
@@ -914,23 +914,23 @@
 
         "7":  {
             "QID": "7",
-            "QuestionText": "How long have you been feeling this way?",
+            "QuestionText": "Have you noticed any patterns in your emotional responses, such as specific triggers or situations??",
             "Options": [
                 {
                     "optionId": "1",
-                    "optionText": "Just recently"
+                    "optionText": "Not sure"
                 },
                 {
                     "optionId": "2",
-                    "optionText": "For several weeks or months"
+                    "optionText": "No, my emotional responses seem unpredictable"
                 },
                 {
                     "optionId": "3",
-                    "optionText": "On and off for a long time"
+                    "optionText": "Sometimes, but the triggers seem random or unclear"
                 },
                 {
                     "optionId": "4",
-                    "optionText": "Can't remember"
+                    "optionText": "Yes, certain situations or events consistently lead to strong emotional reactions"
                     
                 }
             ],
@@ -939,23 +939,23 @@
 
         "8":  {
             "QID": "8",
-            "QuestionText": "Have you noticed any patterns or triggers for your anxiety?",
+            "QuestionText": "Do you often experience mood swings or sudden shifts in emotions?",
             "Options": [
                 {
                     "optionId": "1",
-                    "optionText": "Yes, certain situations or thoughts consistently trigger my anxiety"
+                    "optionText": "Rarely"
                 },
                 {
                     "optionId": "2",
-                    "optionText": "Yes, multiple triggers and patterns"
+                    "optionText": "Yes, sometimes"
                 },
                 {
                     "optionId": "3",
-                    "optionText": "No, it seems to come and go unpredictably"
+                    "optionText": "Yes, frequently"
                 },
                 {
                     "optionId": "4",
-                    "optionText": "Not sure"
+                    "optionText": "Yes, Almost constantly"
                     
                 }
             ],
@@ -964,23 +964,23 @@
 
         "9":  {
             "QID": "9",
-            "QuestionText": "Do you find it difficult to control your anxious thoughts or feelings?",
+            "QuestionText": "Have your emotional difficulties caused problems in your relationships or daily life?",
             "Options": [
                 {
                     "optionId": "1",
-                    "optionText": "Yes, it's hard to stop worrying or calm down"
+                    "optionText": "No, not really"
                 },
                 {
                     "optionId": "2",
-                    "optionText": "Yes, very difficult to control"
+                    "optionText": "Not sure"
                 },
                 {
                     "optionId": "3",
-                    "optionText": "No, I can usually manage my anxiety when it arises"
+                    "optionText": "Sometimes, but not always"
                 },
                 {
                     "optionId": "4",
-                    "optionText": "Not sure"
+                    "optionText": "Yes, they've caused significant problems"
                     
                 }
             ],
@@ -989,11 +989,11 @@
 
         "10":  {
             "QID": "10",
-            "QuestionText": "Have you experienced any panic attacks or sudden surges of intense anxiety?",
+            "QuestionText": "Do you feel like your emotional responses are disproportionate to the situation at hand?",
             "Options": [
                 {
                     "optionId": "1",
-                    "optionText": "No, never"
+                    "optionText": "Rarely"
                 },
                 {
                     "optionId": "2",
@@ -1001,11 +1001,11 @@
                 },
                 {
                     "optionId": "3",
-                    "optionText": "Yes, occasionally"
+                    "optionText": "Sometimes"
                 },
                 {
                     "optionId": "4",
-                    "optionText": "Yes, frequently"
+                    "optionText": "Yes, often"
                     
                 }
             ],
