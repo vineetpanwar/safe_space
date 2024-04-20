@@ -18,7 +18,7 @@ const UserDetails = () => {
           Email
           <input type="text" className="input input-bordered input-primary w-full text-[#fff] border-[#fff]" placeholder="john@gmail.com" />
         </label>
-        <button className="btn btn-lg btn-outline mt-[5rem] text-[#fff] hover:bg-[#230C59] hover:text-[#fff] hover:border-[#fff]">Start Assessment<FaAngleRight className='ml-auto'/></button>
+        <button className="btn btn-lg btn-outline mt-[2rem] text-[#fff] hover:bg-[#230C59] hover:text-[#fff] hover:border-[#fff]">Start Assessment<FaAngleRight className='ml-auto'/></button>
       </form>
     </div>
   );
