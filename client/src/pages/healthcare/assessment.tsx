@@ -12,7 +12,7 @@ const HealthcareAssessment = () => {
   return (
     <div className="flex flex-col items-center justify-start pt-20 min-h-screen py-2 bg-gradient-to-r from-background-start-rgb to-background-end-rgb max-h-screen overflow-y-auto">
       <SafeSpaceLogoBanner />
-      <h1 className="text-2xl text-center my-6 mt-[5rem]">Below is the list of assessments and the quetions, feel free to edit and save</h1>
+      <h1 className="text-2xl text-center my-6 mt-[5rem]">Below is the list of assessments and the questions, feel free to edit and save</h1>
       <div className='w-[80%] flex flex-col align-center gap-3'>
         {
             Object.entries(assessment).map((curr,index) => {

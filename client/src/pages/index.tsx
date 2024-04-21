@@ -10,7 +10,7 @@ const HomePage: FC = () => {
 
   const handleGetStarted = () => {
     if (isLoggedIn()) {
-      router.push('/userDetails');
+      router.push('/healthcare');
     } else {
       router.push('/login');
     }

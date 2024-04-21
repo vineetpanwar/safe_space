@@ -25,7 +25,7 @@ const LoginPage: FC = () => {
         try {
             // Assume login is successful
             await login({ email, username: 'JohnDoe' }); 
-            router.push('/userDetails'); 
+            router.push('/healthcare/assessment'); 
         } catch (error) {
             setError('Failed to log in. Please try again.');
         }
