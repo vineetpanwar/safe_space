@@ -23,9 +23,15 @@ const HomePage: FC = () => {
       <p className="text-xl text-center mt-[1rem] px-[10rem]">{`At SafeSpace, we understand the importance of mental health, and we're here to offer you a safe and welcoming environment to explore your well-being. Our chatbot is designed to provide you with personalized mental health assessments and valuable resources, all from the comfort of your own home.`}</p>
       <button 
         className="btn btn-lg btn-outline mt-[5rem] w-[25%] text-[#fff] hover:bg-[#230C59] hover:text-[#fff] hover:border-[#fff]" 
-        onClick={handleGetStarted}
+        onClick={() => {router.push('/userDetails');}}
       >
         Get Started <FaAngleRight className='ml-auto'/>
+      </button>
+      <button 
+        className="btn btn-lg btn-outline mt-[2rem] w-[25%] text-[#fff] hover:bg-[#230C59] hover:text-[#fff] hover:border-[#fff]" 
+        onClick={handleGetStarted}
+      >
+        Login Healthcare Professional <FaAngleRight className='ml-auto'/>
       </button>
     </div>
   );
