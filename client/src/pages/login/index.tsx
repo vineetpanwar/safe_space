@@ -47,7 +47,7 @@ const LoginPage: FC = () => {
               value={email}
               required
               onChange={(e) => setEmail(e.target.value)} 
-              className="w-[85%] ml-auto input input-bordered input-primary w-full text-[#fff] border-[#fff]" />
+              className="w-[73%] ml-auto input input-bordered input-primary w-full text-[#fff] border-[#fff]" />
           </label>
             
           <label className="mt-[2rem] input bg-transparent text-[#fff] flex items-center gap-2 focus:outline-none focus:border-none">
@@ -59,14 +59,14 @@ const LoginPage: FC = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            className="w-[85%] ml-auto input input-bordered input-primary w-full text-[#fff] border-[#fff]" />
+            className="w-[73%] ml-auto input input-bordered input-primary w-full text-[#fff] border-[#fff]" />
           </label>
           </div>
           {error && <p className="text-red-500 text-xs text-center">{error}</p>}
           <div className='flex align-center justify-center'>
           <button
             type="submit"
-            className="mt-[3rem] btn w-full bg-purple-600 hover:bg-transparent hover:text-[#fff] hover:border-[#fff]">
+            className="mt-[3rem] btn w-full text-[#fff] bg-purple-600 hover:bg-transparent hover:text-[#fff] hover:border-[#fff]">
             Login
           </button>
           </div>

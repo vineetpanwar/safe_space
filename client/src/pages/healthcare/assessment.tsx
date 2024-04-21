@@ -52,10 +52,10 @@ const HealthcareAssessment = () => {
         }
         </div>
         <button 
-        className="btn btn-lg btn-outline mt-[2rem] w-[50%] text-[#fff] hover:bg-[#230C59] hover:text-[#fff] hover:border-[#fff]" 
+        className="btn btn-lg btn-outline mt-[2rem] w-[10%] text-[#fff] hover:bg-[#230C59] hover:text-[#fff] hover:border-[#fff]" 
         onClick={() => {router.push('/healthcare');}}
       >
-        Save <FaAngleRight className='ml-auto'/>
+        Save
       </button>
       </div>
   );
