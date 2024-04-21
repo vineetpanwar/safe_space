@@ -5,6 +5,11 @@ from flask import Flask, jsonify, request
 from services.DoctorsService import fetch_doctors_based_on_location
 from services.AssessmentService import getAssessment
 from flask_cors import CORS
+import json
+from services.healthcare_professional_service import HealthcareProfessional
+from services.user_service import User
+from werkzeug.security import check_password_hash
+
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*", "methods": ["GET", "POST"], "allow_headers": ["Content-Type"]}})
@@ -59,6 +64,48 @@ def home():
     return "Flask Vercel Example - Hello World", 200
 
 
+@app.route('/login', methods=['POST'])
+def login():
+    try:
+        data = request.get_json()
+        username = data['username']
+        password = data['password']
+
+        # Authenticate user
+        user = HealthcareProfessional.login(username, password)
+
+        # If authentication is successful, proceed to login.
+        if user:
+            return jsonify({"message": "Login successful"}), 200
+        else:
+            return jsonify({"message": "Invalid username or password"}), 401
+    except Exception as e:
+        return {"message": str(e)}, 500
+
+@app.route('/signup', methods=['POST'])
+def signup():
+    try:
+        data = request.get_json()
+        username = data['username']
+        password = data['password']
+        professional_id = data['professional_id']
+        qualifications = data['qualifications']
+        work_schedule = data['work_schedule']
+
+        # Register new healthcare professional
+        user = HealthcareProfessional.signup(username, password, professional_id, qualifications, work_schedule)
+
+        # If signup is successful, proceed to create user.
+        if user:
+            return jsonify({"message": "Signup successful"}), 201
+        else:
+            return jsonify({"message": "Signup failed"}), 400
+    except Exception as e:
+        return jsonify({"message": str(e)}), 500
+
+if __name__ == '__main__':
+    app.run(debug=True)
+    
 @app.errorhandler(404)
 def page_not_found(e):
     return jsonify({"status": 404, "message": "Not Found"}), 404
