@@ -1,4 +1,14 @@
 # SAFE Space - A Mental Health Wellness Chatbot
+### 0. SETUP AND RUN YOUR REPO: 
+
+#### PREREQUISITES :
+Please make sure that you have ```>Node 20.x```  and ```python 3.11``` installed in your system.
+#### INSTALLATION :
+1. For frontend installation - Go to the ``client`` folder and run ```npm i``` 
+2. For backend installation - Go to the ``server`` folder and run ```pip install -r requirements. txt``` 
+#### Start/Serve the projects :
+1. For running frontend code - Go to the ``client`` folder and run ```npm run dev```. To access the page, hit URL - http://localhost:3000/ in the browser
+2. For backend installation - Go to the ``server/api`` folder and run ```flask run``` and access apis from postman using URL - http://localhost:5000
 
 ### 1. INTRODUCTION :
 In recent years, the spotlight on mental health has intensified, underscoring its critical
