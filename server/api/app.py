@@ -13,7 +13,7 @@ from services import AssessmentService
 import json
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "*", "methods": ["GET", "POST"], "allow_headers": ["Content-Type"]}})
+CORS(app, resources={r"/*": {"origins": "*", "methods": ["GET", "POST","PUT","DELETE"], "allow_headers": ["Content-Type"]}})
 
 data = {
     "name": "John Doe",
