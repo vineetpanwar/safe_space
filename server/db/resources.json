@@ -1,0 +1,50 @@
+{
+    "anxiety": {
+        "101": {
+            "resource_id":101,
+            "resource_name": "Understanding Anxiety Disorders",
+            "resource_link": "https://www.nimh.nih.gov/health/topics/anxiety-disorders/index.shtml"
+        },
+        "102": {
+            "resource_id":102,
+            "resource_name": "Anxiety and Depression Association of America",
+            "resource_link": "https://adaa.org/"
+        }
+    },
+    "moodDisorder": {
+        "201": {
+            "resource_id":201,
+            "resource_name": "National Institute of Mental Health - Mood Disorders",
+            "resource_link": "https://www.nimh.nih.gov/health/topics/mood-disorders/index.shtml"
+        },
+        "202": {
+            "resource_id":202,
+            "resource_name": "Depression and Bipolar Support Alliance",
+            "resource_link": "https://www.dbsalliance.org/"
+        }
+    },
+    "psychoticDisorder": {
+        "301": {
+            "resource_id":301,
+            "resource_name": "National Alliance on Mental Illness - Schizophrenia",
+            "resource_link": "https://www.nami.org/About-Mental-Illness/Mental-Health-Conditions/Schizophrenia"
+        },
+        "302": {
+            "resource_id":302,
+            "resource_name": "Schizophrenia and Related Disorders Alliance of America",
+            "resource_link": "https://sardaa.org/"
+        }
+    },
+    "personalityDisorder": {
+        "401": {
+            "resource_id":401,
+            "resource_name": "Borderline Personality Disorder Resource Center",
+            "resource_link": "https://www.borderlinepersonalitydisorder.org/"
+        },
+        "402": {
+            "resource_id":402,
+            "resource_name": "National Education Alliance for Borderline Personality Disorder",
+            "resource_link": "https://www.borderlinepersonalitydisorder.org/"
+        }
+    }
+}
