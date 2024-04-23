@@ -3,14 +3,14 @@ import sys
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from flask import Flask, jsonify, request
 from services.DoctorsService import fetch_doctors_based_on_location
-
-from services.AssessmentService import getAssessment, createAssessment
+# from services.AssessmentService import getAssessment, createAssessment, deleteAssessment, updateAssessment
+# from services.ResourceService import getResources
 from flask_cors import CORS
-import json
 from services.healthcare_professional_service import HealthcareProfessional
 from services.user_service import User
 from werkzeug.security import check_password_hash
-
+from services import AssessmentService
+import json
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*", "methods": ["GET", "POST"], "allow_headers": ["Content-Type"]}})
@@ -53,23 +53,45 @@ def get_doctors_nearby_route():
 def foo():
     return jsonify({ 'foo': 'bar'}), 200
 
-@app.route("/get_assessment")
-def assessment():
-    getAssessment()
-    return jsonify({ 'abc': 'def1'}), 200
 
-@app.route("/create_assessment", methods=["POST"])
+@app.route("/assessment")
+def get_assessment_route():
+    try:
+        test_id = request.args.get("id")  # Retrieve testId from query parameters
+        assessment_data = AssessmentService.assessment_instance.getAssessment(test_id)
+        if assessment_data:
+            return jsonify(assessment_data), 200
+        else:
+            return jsonify({"error": "Assessment not found"}), 404
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
+# @app.route("/assessment")
+# def get_assessment_route(testId):
+#     try:
+#         assessment_name = request.args.get("id")
+#         # assessment_data = AssessmentService.assessment_instance.getAssessment(testId)
+#         # if assessment_name in assessment_data:
+#         return jsonify(assessment_name), 200
+#         # else:
+#         #     return jsonify({"error": "Assessment not found"}), 404
+#     except Exception as e:
+#         return jsonify({"success": False, "error": str(e)}), 500
+    
+
+@app.route("/assessment", methods=["POST"])
 def create_assessment_route():
     try:
         # Extract parameters from the request data
         data = request.json
         database_name = data.get('database_name')
-        set_name = data.get('set_name')
+        # set_name = data.get('set_name')
         question_text = data.get('question_text')
         options = data.get('options')
 
         # Call the createAssessment function
-        result = createAssessment(database_name, set_name, question_text, options)
+        result = AssessmentService.assessment_instance.createAssessment(database_name, question_text, options)
 
         # Return the result as JSON response
         return jsonify(result)
@@ -78,6 +100,47 @@ def create_assessment_route():
         return jsonify({"success": False, "error": str(e)}), 500
     
 
+@app.route("/assessment", methods=["DELETE"])
+def delete_assessment_route():
+    try:
+        # Extract parameters from the request data
+        data = request.json
+        database_name = data.get('database_name')
+        question_id = data.get('question_id')
+
+        # Call the deleteQuestion function
+        result = AssessmentService.assessment_instance.deleteAssessment(database_name, question_id)
+
+        # Return the result as JSON response
+        return jsonify(result)
+
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
+@app.route("/assessment", methods=["PUT"])
+def update_assessment_route():
+    try:
+        # Extract parameters from the request data
+        data = request.json
+        database_name = data.get('database_name')
+        question_id = data.get('question_id')
+        updated_question_text = data.get('updated_question_text')
+        updated_options = data.get('updated_options')
+
+        # Call the updateQuestion function
+        result = AssessmentService.assessment_instance.updateAssessment(database_name, question_id, updated_question_text, updated_options)
+
+        # Return the result as JSON response
+        return jsonify(result)
+
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)}), 500
+
+@app.route("/resources")
+def resources():
+    # getResources()
+    return jsonify({ 'abc': 'def1'}), 200
 
 
 @app.route("/doctors")
@@ -87,7 +150,6 @@ def docs():
 @app.route("/")
 def home():
     return "Flask Vercel Example - Hello World", 200
-
 
 @app.route('/login', methods=['POST'])
 def login():
