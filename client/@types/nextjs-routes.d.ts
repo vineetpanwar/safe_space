@@ -11,7 +11,6 @@ declare module "nextjs-routes" {
   } from "next";
 
   export type Route =
-    | StaticRoute<"/articles/mental-health">
     | StaticRoute<"/assessment">
     | StaticRoute<"/foo">
     | StaticRoute<"/healthcare/assessment">
