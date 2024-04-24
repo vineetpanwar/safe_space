@@ -135,10 +135,23 @@ class Assessment:
 
 
     
-    def evaluateScore(self):
+
+    def evaluateScore(self, recorded_options):
         try:
-            with open(self.assessment_file, 'r') as file:
-                data = json.load(file)
-            
-            
+            # Get the total number of questions
+            total_questions = len(recorded_options)
+
+            # Calculate the sum of recorded options
+            sum_recorded_options = sum(int(recorded_options[question]["recordedOption"]) for question in recorded_options)
+
+            # Calculate the average
+            average = sum_recorded_options / (total_questions * 4)  # Since there are 4 options for each question
+
+            # Determine the mental health status
+            mental_health = "bad" if average > 0.5 else "good"  # If the average is greater than 0.5, consider it bad
+
+            return {"mental_health": mental_health}
+        except Exception as e:
+            return {"success": False, "error": str(e)}
+
     

@@ -137,6 +137,21 @@ def update_assessment_route():
     except Exception as e:
         return jsonify({"success": False, "error": str(e)}), 500
 
+@app.route("/evaluate-score/<testId>", methods=["POST"])
+def evaluate_score_route(testId):
+    try:
+        # Get the recorded options from the request JSON
+        recorded_options = request.json.get(testId)
+        
+        # Call the evaluateScore method to calculate the mental health score
+        result = AssessmentService.assessment_instance.evaluateScore(recorded_options)
+        
+        # Return the result as JSON response
+        return jsonify(result), 200
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
 @app.route("/resources")
 def resources():
     # getResources()
