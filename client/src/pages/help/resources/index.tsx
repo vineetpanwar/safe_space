@@ -1,85 +1,85 @@
-import React, { useState, useEffect } from 'react';
-import SafeSpaceLogoBanner from '../../../../components/SafeSpaceLogoBanner';
+import React, { useState, useEffect } from "react";
+import SafeSpaceLogoBanner from "../../../../components/SafeSpaceLogoBanner";
+import CarouselElement from '../../../../components/CarouselElement';
 
 interface Article {
   title: string;
   summary: string;
   imageUrl: string;
+  href: string;
 }
-
-interface CarouselSlideProps {
-  article: Article;
-  isActive: boolean;
-}
-
-const CarouselSlide: React.FC<CarouselSlideProps> = ({ article, isActive }) => {
-    const activeClass = isActive ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-full';
-    
-    // Reduced image height percentage
-    const imageHeightPercentage = 50; // This will control the image height
-    const contentHeightPercentage = 100 - imageHeightPercentage; // Adjust content height accordingly
-  
-    return (
-      <div className={`absolute inset-0 transition-opacity duration-700 ease-in-out transform ${activeClass}`}>
-        <div className="rounded-lg overflow-hidden shadow-xl max-w-4xl mx-auto flex flex-col bg-white" style={{ height: '40vh' }}> {/* Reduced total height */}
-          <div className="relative w-full" style={{ height: `${imageHeightPercentage}%` }}>
-            <img src={article.imageUrl} alt={article.title} className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-end"> {/* Dark overlay */}
-              <div className="px-6 pb-4 text-left">
-                <h2 className="text-3xl font-bold text-white mb-3">{article.title}</h2>
-                <p className="text-lg text-gray-200">{article.summary}</p>
-              </div>
-            </div>
-          </div>
-          <div className="bg-pink p-6 text-center flex flex-col justify-between" style={{ height: `30%` }}>
-            <div>
-              {/* Additional content here */}
-            </div>
-            <a href="https://www.cdc.gov/mentalhealth/learn/index.htm" className="self-center bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-6 rounded-full shadow-lg transition-all duration-300 ease-in-out transform hover:-translate-y-1">
-              Read more
-            </a>
-          </div>
-        </div>
-      </div>
-    );
-  };
-  
-  
-  
-  
 
 const articles: Article[] = [
   {
-    title: 'Understanding Anxiety',
-    summary: 'Explore the causes of anxiety and the various ways to manage it.',
-    imageUrl: '/newspaper-anxiety-headlines.jpg', // Adjust the path as necessary
+    title: "Understanding Anxiety",
+    summary: "Explore the causes of anxiety and the various ways to manage it.",
+    imageUrl: "/newspaper-anxiety-headlines.jpg", // Adjust the path as necessary
+    href: "https://www.cdc.gov/mentalhealth/learn/index.htm",
   },
   {
-    title: 'Coping with Depression',
-    summary: 'Find strategies for dealing with depression and its symptoms.',
-    imageUrl: '/depression.jpeg', // Adjust the path as necessary
+    title: "Coping with Depression",
+    summary: "Find strategies for dealing with depression and its symptoms.",
+    imageUrl: "/depression.jpeg", // Adjust the path as necessary
+    href: "https://www.cdc.gov/mentalhealth/learn/index.htm",
+  },
+  {
+    title: "Coping with Personality Disorder",
+    summary: "Managing and adapting to persistent patterns of thoughts, feelings, and behaviors that deviate from cultural norms and cause distress or dysfunction in daily life.",
+    imageUrl: "/personalityDisorder.jpg", // Adjust the path as necessary
+    href: "https://www.cdc.gov/mentalhealth/learn/index.htm",
+  },
+  {
+    title: "Coping with Psychotic Disorder",
+    summary: "Learning strategies to manage hallucinations, delusions, and disorganized thinking to improve functioning and reduce distress.",
+    imageUrl: "/psychoticDisorder.jpeg", // Adjust the path as necessary
+    href: "https://www.cdc.gov/mentalhealth/learn/index.htm",
+  },
+  {
+    title: "Coping with Mood Disorder",
+    summary: "Developing skills to regulate mood swings, manage symptoms of depression or mania, and improve overall emotional well-being.",
+    imageUrl: "/moodDisorder.jpeg", // Adjust the path as necessary
+    href: "https://www.cdc.gov/mentalhealth/learn/index.htm",
+  },
+  {
+    title: "Coping with Anxiety",
+    summary: "Implementing techniques to reduce excessive worry, panic attacks, and avoidance behaviors, and to enhance relaxation and coping mechanisms.",
+    imageUrl: "/anxiety.webp", // Adjust the path as necessary
+    href: "https://www.cdc.gov/mentalhealth/learn/index.htm",
+  },
+  {
+    title: "Understandin Depression",
+    summary: "Gaining insight into the causes, symptoms, and treatments of depression, and learning strategies to cope with low mood, lack of energy, and negative thoughts.",
+    imageUrl: "/depression-hub.jpg", // Adjust the path as necessary
+    href: "https://www.cdc.gov/mentalhealth/learn/index.htm",
   },
   // Add more articles here
 ];
 
 const MentalHealthResources = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((current) => (current + 1) % articles.length);
-    }, 3000); // Change slides every 3 seconds
-    return () => clearInterval(interval); // Clear the interval on component unmount
-  }, []);
 
   return (
-    <div className="relative flex flex-col items-center justify-center w-full min-h-screen pt-8">
+    <div className="relative flex flex-col items-center justify-center w-full pt-20">
       <SafeSpaceLogoBanner />
-      <h1 className="text-3xl font-bold text-center my-4">Mental Health Articles</h1>
-      <div className="relative w-full flex justify-center items-center" style={{ height: '50vh' }}>
-        {articles.map((article, index) => (
-          <CarouselSlide key={index} article={article} isActive={index === activeIndex} />
-        ))}
+      <h1 className="text-3xl font-bold text-center my-4">
+        Mental Health Articles
+      </h1>
+      <h3>
+        Scroll right for some great mental health resources put forwared by our team just for you!!
+      </h3>
+      <div
+        className="relative w-full flex justify-center items-center mt-8"
+        style={{ height: "50vh" }}
+      >
+        {
+          <div
+            className="h-auto carousel carousel-center max-w-4xl p-4 space-x-4 bg-neutral rounded-box w-[50%] cursor-pointer"
+            style={{ height: "inherit" }}
+          >
+            {articles.map((curr, index) => {
+              return <CarouselElement key={index} article={curr} index={index} />;
+            })}
+          </div>
+        }
       </div>
     </div>
   );
