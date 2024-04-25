@@ -1,0 +1,44 @@
+{
+    "101": {
+        "title": "Understanding Anxiety Disorders",
+        "summary": "Explore the causes of anxiety and the various ways to manage it.",
+        "imageUrl": "/newspaper-anxiety-headlines.jpg",
+        "href": "https://www.nimh.nih.gov/health/topics/anxiety-disorders/index.shtml"
+    },
+    "102": {
+        "title": "Anxiety and Depression Association of America",
+        "summary": "Find strategies for dealing with depression and its symptoms.",
+        "imageUrl": "/depression.jpeg",
+        "href": "https://adaa.org/"
+    },
+    "103": {
+        "title": "Borderline Personality Disorder Resource Center",
+        "summary": "Managing and adapting to persistent patterns of thoughts, feelings, and behaviors that deviate from cultural norms and cause distress or dysfunction in daily life.",
+        "imageUrl": "/personalityDisorder.jpg",
+        "href": "https://www.borderlinepersonalitydisorder.org/"
+    },
+    "104": {
+        "title": "National Alliance on Mental Illness - Schizophrenia",
+        "summary": "Learning strategies to manage hallucinations, delusions, and disorganized thinking to improve functioning and reduce distress.",
+        "imageUrl": "/psychoticDisorder.jpeg",
+        "href": "https://www.nami.org/About-Mental-Illness/Mental-Health-Conditions/Schizophrenia"
+    },
+    "105": {
+        "title": "National Institute of Mental Health - Mood Disorders",
+        "summary": "Developing skills to regulate mood swings, manage symptoms of depression or mania, and improve overall emotional well-being.",
+        "imageUrl": "/moodDisorder.jpeg",
+        "href": "https://www.nimh.nih.gov/health/topics/mood-disorders/index.shtml"
+    },
+    "106": {
+        "title": "Depression and Bipolar Support Alliance",
+        "summary": "Implementing techniques to reduce excessive worry, panic attacks, and avoidance behaviors, and to enhance relaxation and coping mechanisms.",
+        "imageUrl": "/anxiety.webp",
+        "href": "https://www.dbsalliance.org"
+    },
+    "107": {
+        "title": "Schizophrenia and Related Disorders Alliance of America",
+        "summary": "Gaining insight into the causes, symptoms, and treatments of depression, and learning strategies to cope with low mood, lack of energy, and negative thoughts.",
+        "imageUrl": "/depression-hub.jpg",
+        "href": "https://sardaa.org/"
+    }
+}
