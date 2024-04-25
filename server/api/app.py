@@ -10,6 +10,7 @@ from services.healthcare_professional_service import HealthcareProfessional
 from services.user_service import User
 from werkzeug.security import check_password_hash
 from services import AssessmentService
+from services import ResourceService
 import json
 
 app = Flask(__name__)
@@ -152,11 +153,41 @@ def evaluate_score_route(testId):
         return jsonify({"success": False, "error": str(e)}), 500
 
 
-@app.route("/resources")
-def resources():
-    # getResources()
-    return jsonify({ 'abc': 'def1'}), 200
 
+
+
+@app.route("/resource")
+def get_resource_route():
+    try:
+          # Retrieve testId from query parameters
+        resource_data = ResourceService.resource_instance.getResources()
+        if resource_data:
+            return jsonify(resource_data), 200
+        else:
+            return jsonify({"error": "Resource not found"}), 404
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)}), 500
+
+@app.route("/resource", methods=["POST"])
+def create_resource_route():
+    try:
+        # Extract parameters from the request data
+        data = request.json
+        # set_name = data.get('set_name')
+        title = data.get('title')
+        summary = data.get('summary')
+        imageUrl = data.get('imageUrl')
+        href = data.get('href')
+
+        # Call the createAssessment function
+        result = ResourceService.resource_instance.createResource(title, summary,imageUrl,href)
+
+        # Return the result as JSON response
+        return jsonify(result)
+
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)}), 500
+    
 
 @app.route("/doctors")
 def docs():
