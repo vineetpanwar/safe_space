@@ -1,3 +1,7 @@
+import hashlib
+import json
+
+
 class User:
     credentials_file = 'server/db/login_credentials.json'  # File path
     

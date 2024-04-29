@@ -1,6 +1,10 @@
-from classes.User import User  # Importing User class for inheritance
+from classes.Users import Users  # Importing User class for inheritance
 
-class Patient(User):
+class Patient(Users):
     PatientID: int
     AssessmentResults: float
-    pass
+    
+    
+def get_name(self) -> str:
+    #Overridden method to get the patient's name
+    return "Patient: " + super()  # Calls the get_name method from User class
