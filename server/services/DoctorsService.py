@@ -3,7 +3,7 @@ import requests
 
 def fetch_doctors_based_on_location(latitude, longitude, searchText):
     try:
-        places_api_url = ' https://places.googleapis.com/v1/places:searchText'
+        places_api_url = 'https://places.googleapis.com/v1/places:searchText'
 
         places_api_body = {
              "textQuery" : searchText,
