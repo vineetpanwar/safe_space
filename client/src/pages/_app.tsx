@@ -12,7 +12,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <title>Safe Space</title>
         <meta name="description" content="A Mental Health Wellness Chatbot" />
       </Head>
-      <GlobalContext.Provider value={{ requestConfig: { url: "https://api-safe-space.vercel.app/" } }}>
+      <GlobalContext.Provider value={{ requestConfig: { url: "https://developerapi-safe-space-bkjxw43yv-my-team-e2f5cb6f.vercel.app/" } }}>
         <AuthProvider> {/* Wrap the component tree with AuthProvider */}
           <Component {...pageProps} />
         </AuthProvider>
