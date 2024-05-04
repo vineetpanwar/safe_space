@@ -1,5 +1,7 @@
 import os
 import sys
+
+from server.classes.Doctor import Doctor
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from flask import Flask, jsonify, request
 from services.DoctorsService import fetch_doctors_based_on_location
@@ -235,6 +237,20 @@ def signup():
             return jsonify({"message": "Signup failed"}), 400
     except Exception as e:
         return jsonify({"message": str(e)}), 500
+    
+
+@app.route('/filter_doctors', methods=['POST'])
+def filter_doctors():
+    data = request.get_json()  # Get JSON data sent to the endpoint
+    if not data:
+        return jsonify({"error": "No data provided"}), 400
+
+    try:
+        filtered_data = Doctor.filter_doctor_details(data)
+        return jsonify(filtered_data), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 
 if __name__ == '__main__':
     app.run(debug=True)
