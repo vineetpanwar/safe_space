@@ -1,6 +1,6 @@
 from flask import Flask, jsonify
 from tinydb import TinyDB, Query
-from server.classes import Resource
+# from server.classes import Resource
 import json
 
 class Resource:

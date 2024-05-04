@@ -9,8 +9,8 @@ from flask_cors import CORS
 from services.healthcare_professional_service import HealthcareProfessional
 from services.user_service import User
 from werkzeug.security import check_password_hash
-from services import AssessmentService
-from services import ResourceService
+from services.AssessmentService import assessment_instance
+from services.ResourceService import resource_instance
 import json
 
 app = Flask(__name__)
@@ -59,7 +59,7 @@ def foo():
 def get_assessment_route():
     try:
         test_id = request.args.get("id")  # Retrieve testId from query parameters
-        assessment_data = AssessmentService.assessment_instance.getAssessment(test_id)
+        assessment_data = assessment_instance.getAssessment(test_id)
         if assessment_data:
             return jsonify(assessment_data), 200
         else:
@@ -72,7 +72,7 @@ def get_assessment_route():
 # def get_assessment_route(testId):
 #     try:
 #         assessment_name = request.args.get("id")
-#         # assessment_data = AssessmentService.assessment_instance.getAssessment(testId)
+#         # assessment_data = assessment_instance.getAssessment(testId)
 #         # if assessment_name in assessment_data:
 #         return jsonify(assessment_name), 200
 #         # else:
@@ -92,7 +92,7 @@ def create_assessment_route():
         options = data.get('options')
 
         # Call the createAssessment function
-        result = AssessmentService.assessment_instance.createAssessment(database_name, question_text, options)
+        result = assessment_instance.createAssessment(database_name, question_text, options)
 
         # Return the result as JSON response
         return jsonify(result)
@@ -110,7 +110,7 @@ def delete_assessment_route():
         question_id = data.get('question_id')
 
         # Call the deleteQuestion function
-        result = AssessmentService.assessment_instance.deleteAssessment(database_name, question_id)
+        result = assessment_instance.deleteAssessment(database_name, question_id)
 
         # Return the result as JSON response
         return jsonify(result)
@@ -130,7 +130,7 @@ def update_assessment_route():
         updated_options = data.get('updated_options')
 
         # Call the updateQuestion function
-        result = AssessmentService.assessment_instance.updateAssessment(database_name, question_id, updated_question_text, updated_options)
+        result = assessment_instance.updateAssessment(database_name, question_id, updated_question_text, updated_options)
 
         # Return the result as JSON response
         return jsonify(result)
@@ -145,7 +145,7 @@ def evaluate_score_route(testId):
         recorded_options = request.json.get(testId)
         
         # Call the evaluateScore method to calculate the mental health score
-        result = AssessmentService.assessment_instance.evaluateScore(recorded_options)
+        result = assessment_instance.evaluateScore(recorded_options)
         
         # Return the result as JSON response
         return jsonify(result), 200
@@ -160,7 +160,7 @@ def evaluate_score_route(testId):
 def get_resource_route():
     try:
           # Retrieve testId from query parameters
-        resource_data = ResourceService.resource_instance.getResources()
+        resource_data = resource_instance.getResources()
         if resource_data:
             return jsonify(resource_data), 200
         else:
@@ -180,7 +180,7 @@ def create_resource_route():
         href = data.get('href')
 
         # Call the createAssessment function
-        result = ResourceService.resource_instance.createResource(title, summary,imageUrl,href)
+        result = resource_instance.createResource(title, summary,imageUrl,href)
 
         # Return the result as JSON response
         return jsonify(result)
