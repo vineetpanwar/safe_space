@@ -14,7 +14,7 @@ from services.ResourceService import resource_instance
 import json
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "*", "methods": ["GET", "POST","PUT","DELETE"], "allow_headers": ["Content-Type"]}})
+CORS(app, resources={r"/*": {"origins": "*", "methods": ["GET", "POST","PUT","DELETE"], "allow_headers": ["Content-Type", "Authorization"]}})
 
 data = {
     "name": "John Doe",
@@ -201,19 +201,19 @@ def home():
 def login():
     try:
         data = request.get_json()
-        username = data['username']
+        email = data['email']
         password = data['password']
 
         # Authenticate user
-        user = HealthcareProfessional.login(username, password)
+        user = HealthcareProfessional.login(email, password)
 
         # If authentication is successful, proceed to login.
         if user:
             return jsonify({"message": "Login successful"}), 200
         else:
-            return jsonify({"message": "Invalid username or password"}), 401
+            return jsonify({"message": "Invalid email or password"}), 401
     except Exception as e:
-        return {"message": str(e)}, 500
+        return jsonify({"message": str(e)}), 500
 
 @app.route('/signup', methods=['POST'])
 def signup():
