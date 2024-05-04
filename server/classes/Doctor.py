@@ -4,4 +4,4 @@ from classes.Patient import Patient  # Importing for inheritance
 
 class Doctor(HealthcareProfessional):
     Specialty: str
-    PatientsList: List[Patient.PatientID]  
+    PatientsList: List[Patient.PatientID] 
