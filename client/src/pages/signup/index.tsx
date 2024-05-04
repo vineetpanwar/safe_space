@@ -25,19 +25,36 @@ const SignupPage: FC = () => {
     return true;
   };
 
-  const handleSignup = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (validatePasswords(password, confirmPassword)) {
-      try {
-        // Replace with actual user data from form
-        await signup({ email, username: 'NewUser' });
-        router.push('/login'); // Redirect to userDetails or dashboard
-      } catch (error) {
-        // Handle errors (e.g., show message to the user)
-        setError('Failed to sign up. Please try again.');
-      }
+  const handleSignup = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    // Simple validation check
+    if (!email || !password) {
+        setError('Email and password are required.');
+        return;
     }
-  };
+
+    try {
+        const response = await fetch('/api/signup', { 
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email, password })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            router.push('/login');
+        } else {
+            throw new Error(data.message || 'Failed to sign up.');
+        }
+    } catch (error: any) {
+        setError(error.message);
+    }
+};
+
 
   return (
     <div className="mt-[5rem] flex flex-col items-center justify-center py-2 bg-gradient-to-r from-background-start-rgb to-background-end-rgb">

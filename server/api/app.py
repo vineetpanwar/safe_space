@@ -219,14 +219,12 @@ def login():
 def signup():
     try:
         data = request.get_json()
-        username = data['username']
+        email = data['email']
         password = data['password']
-        professional_id = data['professional_id']
-        qualifications = data['qualifications']
-        work_schedule = data['work_schedule']
+        
 
         # Register new healthcare professional
-        user = HealthcareProfessional.signup(username, password, professional_id, qualifications, work_schedule)
+        user = HealthcareProfessional.signup(email, password)
 
         # If signup is successful, proceed to create user.
         if user:
