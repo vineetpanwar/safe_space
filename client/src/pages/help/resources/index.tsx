@@ -61,8 +61,11 @@ const MentalHealthResources = () => {
 
   useEffect(() => {
     async function fetchData() {
+      console.log("next api url", process.env.NEXT_PUBLIC_API_URL);
+      const base_url = 'https://developerapi-safe-space-pp0f6qrnq-my-team-e2f5cb6f.vercel.app'
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || base_url;
       try {
-        const response = await fetch('https://developerapi-safe-space-pp0f6qrnq-my-team-e2f5cb6f.vercel.app/resource');
+        const response = await fetch(`${API_URL}/resource`);
         const responseData = await response.json();
         console.log('vineet', data);
         setData(responseData);
