@@ -20,16 +20,36 @@ const LoginPage: FC = () => {
         return true;
     };
 
-    const handleLogin = async (e: React.FormEvent) => {
-        e.preventDefault();
-        try {
-            // Assume login is successful
-            await login({ email, username: 'JohnDoe' }); 
-            router.push('/healthcare/assessment'); 
-        } catch (error) {
-            setError('Failed to log in. Please try again.');
-        }
-    };
+    const handleLogin = async (e: { preventDefault: () => void; }) => {
+      e.preventDefault();
+  
+      const loginData = {
+          email: email,
+          password: password
+      };
+  
+      try {
+          const response = await fetch('/api/login', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(loginData)
+          });
+  
+          const data = await response.json();
+  
+          if (response.ok) {
+              router.push('/healthcare/assessment');
+          } else {
+              throw new Error(data.message || "Failed to log in");
+          }
+      } catch (error) {
+          setError((error as Error).message);
+      }
+  };
+  
+  
 
   return (
     <div className="mt-[5rem] flex flex-col items-center py-2 bg-gradient-to-r from-background-start-rgb to-background-end-rgb">
