@@ -22,18 +22,14 @@ const Assessment = () => {
           },
           {
               "optionId": "2",
-              "optionText": "depression"
-          },
-          {
-              "optionId": "3",
               "optionText": "moodDisorder"
           },
           {
-              "optionId": "4",
+              "optionId": "3",
               "optionText": "psychoticDisorder"
           },
           {
-            "optionId": "5",
+            "optionId": "4",
             "optionText": "personalityDisorder"
           }
 
@@ -42,42 +38,76 @@ const Assessment = () => {
         recordedOption: ""
       }
     ]);
-  const [currentQuestion, setCurrentQuestion] = useState<number>(0);
-  const [showOptions, setShowOptions] = useState(true);
-  const [loading, setLoading] = useState(false);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+    const [currentQuestion, setCurrentQuestion] = useState<number>(0);
+    const [showOptions, setShowOptions] = useState(true);
+    const [loading, setLoading] = useState(false);
+    const messagesEndRef = useRef<HTMLDivElement>(null);
+    const [questionSet, setQuestionSet] = useState("");
+    const base_url = 'https://developerapi-safe-space-pp0f6qrnq-my-team-e2f5cb6f.vercel.app'
+    const API_URL = process.env.NEXT_PUBLIC_API_URL || base_url;
 
 
-  const handleRecordOption = (evt: any, optionId: string) => {
+  const handleRecordOption = async (evt: any, optionId: string) => {
     const newMessageQue = Array.from(messageQue)
     messageQue[currentQuestion].recordedOption = optionId;
     setMessageQue(newMessageQue);
     setShowOptions(false);
     setLoading(true);
     if(currentQuestion !=0 && currentQuestion>=messageQue.length - 1) {
-      // Make a api call to check the score
-      const score = 'bad';
-      if(score === 'bad') {
+      const newArray = newMessageQue.slice(1);
+
+      const data = {}
+      console.log('vineet', newArray);
+      newArray.forEach((curr) => {
         // @ts-ignore
-        router.push('/help/doctorsNearby?find=therapists')
-      } else if(score === 'worse') {
-        // @ts-ignore
-        router.push('/help/doctorsNearby?find=psycologists')
-      } else {
-        router.push('/help/resources')
+        data[curr.QID] = curr;
+      })
+      const finalData = {
+        [questionSet] : data
       }
+      fetch(`${API_URL}/evaluate-score/${questionSet}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(finalData),
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        // Make a api call to check the score
+        const score = data["mental_health"];
+        console.log("score", score);
+        if(score === 'bad') {
+          // @ts-ignore
+          router.push('/help/doctorsNearby?find=therapists')
+        } else if(score === 'worse') {
+          // @ts-ignore
+          router.push('/help/doctorsNearby?find=psycologists')
+        } else {
+          router.push('/help/resources')
+        }
+        console.log('Response Body:', data);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+
 
     }
     if(currentQuestion == 0) {
       //fetch corresponding question set
-      let assessmentSet: ({ QID: string; QuestionText: string; Options: { optionId: string; optionText: string; }[]; recordedOption: string; } | { QID: string; QuestionText: string; Options: { optionId: string; optionText: string; }[]; recordedOption: string; } | { QID: string; QuestionText: string; Options: { optionId: string; optionText: string; }[]; recordedOption: string; } | { QID: string; QuestionText: string; Options: { optionId: string; optionText: string; }[]; recordedOption: string; } | { QID: string; QuestionText: string; Options: { optionId: string; optionText: string; }[]; recordedOption: string; } | { QID: string; QuestionText: string; Options: { optionId: string; optionText: string; }[]; recordedOption: string; } | { QID: string; QuestionText: string; Options: { optionId: string; optionText: string; }[]; recordedOption: string; } | { QID: string; QuestionText: string; Options: { optionId: string; optionText: string; }[]; recordedOption: string; } | { QID: string; QuestionText: string; Options: { optionId: string; optionText: string; }[]; recordedOption: string; } | { QID: string; QuestionText: string; Options: { optionId: string; optionText: string; }[]; recordedOption: string; })[] = [];
-      for (const [key, value] of Object.entries(MockAssessment)) {
-        if(`${messageQue[0].Options.filter(curr => curr.optionId === optionId)[0].optionText}Set`=== key) {
-          assessmentSet = Object.values(value);
-        }
-      }
-      const newMessageQue = [...Array.from(messageQue), ...assessmentSet];
+      // @ts-ignore
+      const testSet = messageQue[currentQuestion].Options.filter((curr:any) => curr.optionId === optionId )[0].optionText;
+      setQuestionSet(`${testSet}Set`);
+      const response = await fetchData(`${testSet}Set`);
+      const newMessageQue = [...Array.from(messageQue), ...Object.values(response)];
       setTimeout(() => {
+        // @ts-ignore
         setMessageQue(newMessageQue)
       },1500);
     }
@@ -89,6 +119,19 @@ const Assessment = () => {
       setShowOptions(true);
     }, 2000)
   }
+
+
+  async function fetchData(assessmentSet: string) {
+    try {
+      const response = await fetch(`${API_URL}/assessment?id=${assessmentSet}`);
+      const responseData = await response.json();
+      return responseData;
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      return [];
+    }
+  }
+
 
   // Scroll to the bottom of the chat to the latest message
   const scrollToBottom = () => {
