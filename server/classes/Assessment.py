@@ -154,7 +154,7 @@ class Assessment:
             average = sum_recorded_options / (total_questions * 4)
 
             # Determine the mental health status
-            const mental_health = "worse" if average > 0.75 else "bad" if average > 0.5 else "good"
+            mental_health = "worse" if average > 0.75 else "bad" if average > 0.5 else "good"
 
             return {"mental_health": mental_health}
         except Exception as e:
