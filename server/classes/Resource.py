@@ -1,10 +1,19 @@
+import os
+import sys
+# sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from flask import Flask, jsonify
 from tinydb import TinyDB, Query
-# from server.classes import Resource
 import json
 
 class Resource:
-    resource_file = 'server/db/resources_updated.json'  # File path
+    # Get the directory of the current Python script
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    
+    # Navigate up one directory level
+    parent_dir = os.path.dirname(script_dir)
+    
+    # Relative path to the resource file
+    resource_file = os.path.join(parent_dir, 'db/resources_updated.json')
     
     def __init__(self):
         pass

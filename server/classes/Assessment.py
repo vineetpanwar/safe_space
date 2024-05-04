@@ -1,10 +1,20 @@
+import os
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from flask import Flask, jsonify
 from tinydb import TinyDB, Query
 # from server.classes.Assessment import Assessment
 import json
 
 class Assessment:
-    assessment_file = 'server/db/assessment.json'  # File path
+    # Get the directory of the current Python script
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    
+    # Navigate up one directory level
+    parent_dir = os.path.dirname(script_dir)
+    
+    # Relative path to the resource file
+    assessment_file = os.path.join(parent_dir, 'db/assessment.json')
     
     def __init__(self):
         pass
@@ -57,7 +67,6 @@ class Assessment:
         
 
 
-
     def deleteAssessment(self,set_name, question_id):
         try:
             # Load existing data from assessment.json
@@ -91,7 +100,6 @@ class Assessment:
 
         except Exception as e:
             return {"success": False, "error": str(e)}
-
 
 
 
@@ -133,8 +141,6 @@ class Assessment:
             return {"success": False, "error": str(e)}
 
 
-
-    
 
     def evaluateScore(self, recorded_options):
         try:
