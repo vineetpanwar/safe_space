@@ -14,8 +14,7 @@ from services.ResourceService import resource_instance
 import json
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "*", "methods": ["GET", "POST","PUT","DELETE"], "allow_headers": ["Content-Type"]}})
-# CORS(app, resources={r"/*": {"origins": "*", "methods": ["GET", "POST","PUT","DELETE"], "allow_headers": ["Content-Type", "Authorization"]}})
+CORS(app, resources={r"/*": {"origins": "*", "methods": ["GET", "POST","PUT","DELETE"], "allow_headers": ["Content-Type", "Authorization"]}})
 
 data = {
     "name": "John Doe",
