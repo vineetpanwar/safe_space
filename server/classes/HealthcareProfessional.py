@@ -10,4 +10,4 @@ class HealthcareProfessional(Users):
         return patient.fetchScore()
     
     def get_patient_by_id(self, id: int) -> Users:
-        return Users.UserID
+        return Users.UserID  #Using Inheritence

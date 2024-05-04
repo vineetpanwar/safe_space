@@ -1,6 +1,8 @@
 import json
 import requests
 
+from server.classes.Doctor import Doctor
+
 def fetch_doctors_based_on_location(latitude, longitude, searchText):
     try:
         places_api_url = 'https://places.googleapis.com/v1/places:searchText'
@@ -21,6 +23,9 @@ def fetch_doctors_based_on_location(latitude, longitude, searchText):
 
         # Sending a GET request to the API
         response = requests.post(places_api_url, json=places_api_body, headers=places_api_headers)
+        if response:
+            filtered_doctors = Doctor.filter_doctor_details(response)
+            print(filtered_doctors)
         
         # Checking if the request was successful (status code 200)
         if response.status_code == 200:
