@@ -1,7 +1,7 @@
 from typing import List
 from classes.HealthcareProfessional import HealthcareProfessional
 from classes.Patient import Patient  # Importing for inheritance
-from services.DoctorsService import fetch_doctors_based_on_location
+# from services.DoctorsService import fetch_doctors_based_on_location
 
 class Doctor(HealthcareProfessional):
     def __init__(self, user_id, username, professional_id, qualifications, address, phno, specialty, patients_list=None):

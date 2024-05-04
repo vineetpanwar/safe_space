@@ -1,10 +1,9 @@
 import os
 import sys
-
-from server.classes.Doctor import Doctor
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from flask import Flask, jsonify, request
-from services.DoctorsService import fetch_doctors_based_on_location
+
+from server.services.DoctorsService import fetch_doctors_based_on_location
 # from services.AssessmentService import getAssessment, createAssessment, deleteAssessment, updateAssessment
 # from services.ResourceService import getResources
 from flask_cors import CORS
@@ -13,6 +12,8 @@ from services.user_service import User
 from werkzeug.security import check_password_hash
 from services.AssessmentService import assessment_instance
 from services.ResourceService import resource_instance
+from server.classes.Doctor import Doctor
+
 import json
 
 app = Flask(__name__)
@@ -241,7 +242,7 @@ def signup():
 
 @app.route('/filter_doctors', methods=['POST'])
 def filter_doctors():
-    data = request.get_json()  # Get JSON data sent to the endpoint
+    data = request.get_json() 
     if not data:
         return jsonify({"error": "No data provided"}), 400
 
