@@ -1,6 +1,10 @@
+import os
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from flask import Flask, jsonify
 from tinydb import TinyDB, Query
-from server.classes.Assessment import Assessment
+from classes.Assessment import Assessment
+
 
 # app = Flask(__name__)
 
