@@ -57,6 +57,26 @@ const articles: Article[] = [
 
 const MentalHealthResources = () => {
 
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    async function fetchData() {
+      console.log("next api url", process.env.NEXT_PUBLIC_API_URL);
+      const base_url = 'https://developerapi-safe-space-pp0f6qrnq-my-team-e2f5cb6f.vercel.app'
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || base_url;
+      try {
+        const response = await fetch(`${API_URL}/resource`);
+        const responseData = await response.json();
+        console.log('vineet', data);
+        setData(responseData);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+
+    fetchData();
+  }, []);
+
   return (
     <div className="relative flex flex-col items-center justify-center w-full pt-20">
       <SafeSpaceLogoBanner />
@@ -75,7 +95,8 @@ const MentalHealthResources = () => {
             className="h-auto carousel carousel-center max-w-4xl p-4 space-x-4 bg-neutral rounded-box w-[50%] cursor-pointer"
             style={{ height: "inherit" }}
           >
-            {articles.map((curr, index) => {
+            {data && Object.values(data).map((curr, index) => {
+              // @ts-ignore
               return <CarouselElement key={index} article={curr} index={index} />;
             })}
           </div>

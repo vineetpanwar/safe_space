@@ -151,10 +151,10 @@ class Assessment:
             sum_recorded_options = sum(int(recorded_options[question]["recordedOption"]) for question in recorded_options)
 
             # Calculate the average
-            average = sum_recorded_options / (total_questions * 4)  # Since there are 4 options for each question
+            average = sum_recorded_options / (total_questions * 4)
 
             # Determine the mental health status
-            mental_health = "bad" if average > 0.5 else "good"  # If the average is greater than 0.5, consider it bad
+            const mental_health = "worse" if average > 0.75 else "bad" if average > 0.5 else "good"
 
             return {"mental_health": mental_health}
         except Exception as e:
