@@ -43,7 +43,7 @@ const Assessment = () => {
     const [loading, setLoading] = useState(false);
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const [questionSet, setQuestionSet] = useState("");
-    const base_url = 'https://developerapi-safe-space-pp0f6qrnq-my-team-e2f5cb6f.vercel.app'
+    const base_url = 'https://developerapi-safe-space-jf39k9ups-my-team-e2f5cb6f.vercel.app'
     const API_URL = process.env.NEXT_PUBLIC_API_URL || base_url;
 
 
