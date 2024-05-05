@@ -16,7 +16,7 @@ class HealthcareProfessional(User):
 
     @classmethod
     def signup(cls, username, password, professional_id, qualifications, work_schedule):
-        # Generate a unique user_id here (e.g., using a UUID or similar)
+        # Generate a unique user_id 
         user_id = str(uuid.uuid4())
         hashed_password = generate_password_hash(password)
 
