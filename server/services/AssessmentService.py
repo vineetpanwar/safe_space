@@ -7,8 +7,17 @@ from classes.Assessment import Assessment
 
 
 # app = Flask(__name__)
+script_dir = os.path.dirname(os.path.abspath(__file__))
 
-assessment_instance = Assessment()
+# Navigate up one directory level to the parent directory
+parent_dir = os.path.dirname(script_dir)
+
+# Relative path to the assessment file
+assessment_file = os.path.join(parent_dir, 'db/assessment.json')
+
+# Create an instance of the Assessment class with the assessment_file argument
+assessment_instance = Assessment(assessment_file)
+# assessment_instance = Assessment()
 
 # def getAssessment(testId):
 #     try:
