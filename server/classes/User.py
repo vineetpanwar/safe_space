@@ -2,8 +2,8 @@ import hashlib
 import json
 
 
-# class User:
-#     credentials_file = 'server/db/login_credentials.json'  # File path
+class User:
+    credentials_file = '../db/login_credentials.json'  # File path
     
 #     def __init__(self, user_id, username):
 #         self._user_id = user_id
