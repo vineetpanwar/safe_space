@@ -10,7 +10,7 @@ class Users(BaseModel):
     email: EmailStr
     _score: Optional[float] = None  # private attribute with leading underscore (Encapsulation)
 
-    credentials_file = 'server/db/login_credentials.json'  # File path
+    credentials_file = '../db/login_credentials.json'  # File path
     
     def __init__(self, user_id, username):
         self._user_id = user_id

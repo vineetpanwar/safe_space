@@ -144,7 +144,6 @@ def evaluate_score_route(testId):
         return jsonify({"success": False, "error": str(e)}), 500
 
 
-
 @app.route("/resource")
 def get_resource_route():
     try:
@@ -237,11 +236,11 @@ def home():
 def login():
     try:
         data = request.get_json()
-        email = data['email']
+        username = data['username']
         password = data['password']
 
         # Authenticate user
-        user = HealthcareProfessional.login(email, password)
+        user = HealthcareProfessional.login(username, password)
 
         # If authentication is successful, proceed to login.
         if user:

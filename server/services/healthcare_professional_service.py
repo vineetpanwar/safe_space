@@ -21,7 +21,7 @@ class HealthcareProfessional(User):
         hashed_password = generate_password_hash(password)
 
         # Load existing credentials
-        with open('G:/OOD_Project/safe_space/server/db/login_credentials.json', 'r') as file:
+        with open('../db/login_credentials.json', 'r') as file:
             credentials = json.load(file)
         
         for hp in credentials.get('healthcare_professionals', []):
@@ -40,7 +40,7 @@ class HealthcareProfessional(User):
         })
 
         # Save credentials back to the file
-        with open('G:/OOD_Project/safe_space/server/db/login_credentials.json', 'w') as file:
+        with open('../db/login_credentials.json', 'w') as file:
             json.dump(credentials, file, indent=4)
         
         return cls(user_id, username, professional_id, qualifications, work_schedule)
@@ -48,7 +48,7 @@ class HealthcareProfessional(User):
     @classmethod
     def login(cls, username, password):
         # Load existing credentials
-        with open('G:/OOD_Project/safe_space/server/db/login_credentials.json', 'r') as file:
+        with open('../db/login_credentials.json', 'r') as file:
             credentials = json.load(file)
 
         # Find the user by username

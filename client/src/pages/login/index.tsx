@@ -22,9 +22,14 @@ const LoginPage: FC = () => {
 
     const handleLogin = async (e: { preventDefault: () => void; }) => {
       e.preventDefault();
+
+      if (!validatePassword(password)) {
+        // If the password does not meet the criteria, stop the login process
+        return;
+    }
   
       const loginData = {
-          email: email,
+          username: email,
           password: password
       };
   
