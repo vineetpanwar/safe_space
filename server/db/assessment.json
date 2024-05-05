@@ -908,25 +908,21 @@
             "QuestionText": "Do you feel like your emotional responses are disproportionate to the situation at hand?",
             "Options": [
                 {
-                    "optionId":"1",
-                    "optionText":"Rarely"
-
+                    "optionId": "1",
+                    "optionText": "Rarely"
                 },
                 {
-                    "optionId":"1",
-                    "optionText":"Not sure"
-
+                    "optionId": "1",
+                    "optionText": "Not sure"
                 },
                 {
-                    "optionId":"1",
-                    "optionText":"Sometimes"
-
+                    "optionId": "1",
+                    "optionText": "Sometimes"
                 },
                 {
-                    "optionId":"1",
-                    "optionText":"Yes, often"
+                    "optionId": "1",
+                    "optionText": "Yes, often"
                 }
-
             ],
             "recordedOption": ""
         }

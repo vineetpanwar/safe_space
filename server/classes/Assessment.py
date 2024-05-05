@@ -8,21 +8,29 @@ import json
 
 class Assessment:
     # Get the directory of the current Python script
-    script_dir = os.path.dirname(os.path.abspath(__file__))
+    # script_dir = os.path.dirname(os.path.abspath(__file__))
     
-    # Navigate up one directory level
-    parent_dir = os.path.dirname(script_dir)
+    # # Navigate up one directory level
+    # parent_dir = os.path.dirname(script_dir)
     
-    # Relative path to the resource file
-    assessment_file = os.path.join(parent_dir, 'db/assessment.json')
+    # # Relative path to the resource file
+    # assessment_file = os.path.join(parent_dir, 'db/assessment.json')
     
-    def __init__(self):
-        pass
-        
+    def __init__(self, assessment_file):
+        self._assessment_file = assessment_file
+    
+    def _read_data(self):
+        with open(self._assessment_file, 'r') as file:
+            return json.load(file)
+
+    def _write_data(self, data):
+        with open(self._assessment_file, 'w') as file:
+            json.dump(data, file, indent=4)
+
+    
     def getAssessment(self,testId):
         try:
-            with open(self.assessment_file, 'r') as file:
-                data = json.load(file)
+            data = self._read_data()
             result = data.get(testId,None)
             return result
         except Exception as e:
@@ -31,10 +39,9 @@ class Assessment:
 
     def createAssessment(self,set_name, question_text, options):
         try:
-        # Load existing data from assessment.json
-            with open(self.assessment_file, 'r') as file:
-                data = json.load(file)
-            
+            # Load existing data from assessment.json
+            data = self._read_data()
+        
             # Get the set
             assessment_set = data.get(set_name, {})
 
@@ -57,8 +64,8 @@ class Assessment:
             data[set_name] = assessment_set
 
             # Write the updated data back to assessment.json
-            with open(self.assessment_file, 'w') as file:
-                json.dump(data, file, indent=4)
+                
+            self._write_data(data)
 
             return {"success": True, "message": "Question added successfully", "QID": next_qid}
 
@@ -69,27 +76,18 @@ class Assessment:
 
     def deleteAssessment(self,set_name, question_id):
         try:
-            # Load existing data from assessment.json
-            with open(self.assessment_file, 'r') as file:
-                data = json.load(file)
+            data = self._read_data()
             
             # Get the set
             assessment_set = data.get(set_name, {})
 
 
-       # Check if the question exists
+            # Check if the question exists
             if question_id in assessment_set:
                 # Delete the question
                 del assessment_set[question_id]
                 
-                # Update the data with the modified assessment set
-                data[set_name] = assessment_set
-
-
-                # Write the updated data back to assessment.json
-                with open(self.assessment_file, 'w') as file:
-                    json.dump(data, file, indent=4)
-
+                self._write_data(data)
 
                 return {"success": True, "message": "Question deleted successfully"}
 
@@ -106,8 +104,8 @@ class Assessment:
     def updateAssessment(self, set_name, question_id, new_question_text, new_options):
         try:
             # Load existing data from assessment.json
-            with open(self.assessment_file, 'r') as file:
-                data = json.load(file)
+            data = self._read_data()
+
             
             # Get the set
             assessment_set = data.get(set_name, {})
@@ -121,14 +119,8 @@ class Assessment:
                 if not new_options is "":
                     assessment_set[question_id]["Options"] = new_options
                 
-                # Update the data with the modified assessment set
-                data[set_name] = assessment_set
 
-
-                # Write the updated data back to assessment.json
-                with open(self.assessment_file, 'w') as file:
-                    json.dump(data, file, indent=4)
-
+                self._write_data(data)
 
                 return {"success": True, "message": "Question updated successfully"}
 

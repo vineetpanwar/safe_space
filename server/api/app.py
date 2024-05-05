@@ -67,19 +67,7 @@ def get_assessment_route():
     except Exception as e:
         return jsonify({"success": False, "error": str(e)}), 500
 
-
-# @app.route("/assessment")
-# def get_assessment_route(testId):
-#     try:
-#         assessment_name = request.args.get("id")
-#         # assessment_data = assessment_instance.getAssessment(testId)
-#         # if assessment_name in assessment_data:
-#         return jsonify(assessment_name), 200
-#         # else:
-#         #     return jsonify({"error": "Assessment not found"}), 404
-#     except Exception as e:
-#         return jsonify({"success": False, "error": str(e)}), 500
-    
+ 
 
 @app.route("/assessment", methods=["POST"])
 def create_assessment_route():
@@ -154,8 +142,6 @@ def evaluate_score_route(testId):
 
 
 
-
-
 @app.route("/resource")
 def get_resource_route():
     try:
@@ -167,6 +153,7 @@ def get_resource_route():
             return jsonify({"error": "Resource not found"}), 404
     except Exception as e:
         return jsonify({"success": False, "error": str(e)}), 500
+
 
 @app.route("/resource", methods=["POST"])
 def create_resource_route():
@@ -188,6 +175,52 @@ def create_resource_route():
     except Exception as e:
         return jsonify({"success": False, "error": str(e)}), 500
     
+
+@app.route("/resource", methods=["PUT"])
+def update_resource_route():
+   try:
+       # Extract parameters from the request data
+       data = request.json
+       resource_number = data.get('resource_number')
+       new_title = data.get('new_title')
+       new_summary = data.get('new_summary')
+       new_imageUrl = data.get('new_imageUrl')
+       new_href = data.get('new_href')
+
+
+       # Call the updateQuestion function
+       result = resource_instance.updateResource(resource_number, new_title, new_summary, new_imageUrl, new_href)
+
+
+       # Return the result as JSON response
+       return jsonify(result)
+
+
+   except Exception as e:
+       return jsonify({"success": False, "error": str(e)}), 500
+
+
+@app.route("/resource", methods=["DELETE"])
+def delete_resource_route():
+   try:
+       # Extract parameters from the request data
+       data = request.json
+       resource_number = data.get("resource_number")
+       # set_name = data.get('set_name')
+      
+
+
+       # Call the createAssessment function
+       result = resource_instance.deleteResource(resource_number)
+
+
+       # Return the result as JSON response
+       return jsonify(result)
+
+
+   except Exception as e:
+       return jsonify({"success": False, "error": str(e)}), 500
+
 
 @app.route("/doctors")
 def docs():
