@@ -78,7 +78,6 @@ def create_assessment_route():
         # Extract parameters from the request data
         data = request.json
         database_name = data.get('database_name')
-        # set_name = data.get('set_name')
         question_text = data.get('question_text')
         options = data.get('options')
 
@@ -147,7 +146,6 @@ def evaluate_score_route(testId):
 @app.route("/resource")
 def get_resource_route():
     try:
-          # Retrieve testId from query parameters
         resource_data = resource_instance.getResources()
         if resource_data:
             return jsonify(resource_data), 200
@@ -162,13 +160,12 @@ def create_resource_route():
     try:
         # Extract parameters from the request data
         data = request.json
-        # set_name = data.get('set_name')
         title = data.get('title')
         summary = data.get('summary')
         imageUrl = data.get('imageUrl')
         href = data.get('href')
 
-        # Call the createAssessment function
+        # Call the createResource function
         result = resource_instance.createResource(title, summary,imageUrl,href)
 
         # Return the result as JSON response
@@ -190,7 +187,7 @@ def update_resource_route():
        new_href = data.get('new_href')
 
 
-       # Call the updateQuestion function
+       # Call the updateResource function
        result = resource_instance.updateResource(resource_number, new_title, new_summary, new_imageUrl, new_href)
 
 
@@ -208,11 +205,11 @@ def delete_resource_route():
        # Extract parameters from the request data
        data = request.json
        resource_number = data.get("resource_number")
-       # set_name = data.get('set_name')
+
       
 
 
-       # Call the createAssessment function
+       # Call the deleteResource function
        result = resource_instance.deleteResource(resource_number)
 
 

@@ -7,14 +7,6 @@ from tinydb import TinyDB, Query
 import json
 
 class Assessment:
-    # Get the directory of the current Python script
-    # script_dir = os.path.dirname(os.path.abspath(__file__))
-    
-    # # Navigate up one directory level
-    # parent_dir = os.path.dirname(script_dir)
-    
-    # # Relative path to the resource file
-    # assessment_file = os.path.join(parent_dir, 'db/assessment.json')
     
     def __init__(self, assessment_file):
         self._assessment_file = assessment_file
@@ -45,7 +37,7 @@ class Assessment:
             # Get the set
             assessment_set = data.get(set_name, {})
 
-            # Find the highest QID and increment by 1 to get the next QID
+            # Find the highest Question ID and increment by 1 to get the next Question ID
             highest_qid = max([int(qid) for qid in assessment_set.keys()] or [0])
             next_qid = str(highest_qid + 1)
 
@@ -64,7 +56,6 @@ class Assessment:
             data[set_name] = assessment_set
 
             # Write the updated data back to assessment.json
-                
             self._write_data(data)
 
             return {"success": True, "message": "Question added successfully", "QID": next_qid}

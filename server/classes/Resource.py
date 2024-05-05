@@ -59,7 +59,7 @@ class Resource:
     
     def deleteResource(self,resource_number):
        try:
-           # Load existing data from assessment.json
+           # Load existing data from resource.json
            with open(self.resource_file, 'r') as file:
                data = json.load(file)
            res_data =data.get(resource_number, {})
@@ -86,7 +86,7 @@ class Resource:
 
     def updateResource(self, resource_number, new_title, new_summary, new_imageUrl, new_href):
        try:
-           # Load existing data from assessment.json
+           # Load existing data from resource.json
            with open(self.resource_file, 'r') as file:
                data = json.load(file)
           
@@ -102,13 +102,13 @@ class Resource:
                 resource_set["imageUrl"] = new_imageUrl
                 resource_set["href"] = new_href
                   
-               # Update the data with the modified assessment set
+               # Update the data
                 data[resource_number] = resource_set
 
 
 
 
-           # Write the updated data back to assessment.json
+           # Write the updated data back to resource.json
                 with open(self.resource_file, 'w') as file:
                     json.dump(data, file, indent=4)
 
